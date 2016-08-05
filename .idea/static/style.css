@@ -33,7 +33,7 @@ body {
     color:white;
     height:1px;
     background:black;
-    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#b7b7b7), to(#fff));
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#bad133), to(#fff));
 }
 #avatarjpg {
     display:inline-block;
@@ -51,7 +51,7 @@ a {
 h1 {
     font-weight: 300;
     font-size: 24px;
-    color: #222;
+    color: #454545;
 }
 h2 {
     font-size: 16px;
@@ -66,4 +66,15 @@ p{
     text-align: justify;
     line-height: 1.7;
     margin-bottom: 40px;
+}
+
+
+#liiplogo
+{
+    width:120px;
+   margin-top: 15px;
+}
+.line_sexy2{
+
+    margin-bottom: 21px;
 }
