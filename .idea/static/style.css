@@ -78,3 +78,29 @@ p{
 
     margin-bottom: 21px;
 }
+.daycount{
+    color: #a8ba1b;
+
+}
+.social {
+    text-align: center;
+}
+.social a{
+    color: #777;
+}
+.social a:hover{
+    color: #bad133
+}
+.social a:not(:last-child){
+    padding-right: 10px;
+}
+footer, i{
+    border-bottom:0px solid #eee;
+    margin-bottom:15px;
+    padding-bottom:15px;
+    position:relative;
+    padding: 50px 40px;
+    max-width: 530px;
+    margin: 0 auto;
+
+}
