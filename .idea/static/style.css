@@ -104,3 +104,13 @@ footer, i{
     margin: 0 auto;
 
 }
+@media screen and (max-width: 540px) {
+    #wrapper { padding:40px; }
+    #header { margin-bottom: 40px; }
+    a#docs { display: none; }
+}
+
+@media screen and (max-width:440px) {
+    #wrapper { padding:40px 20px; }
+    #header { margin-bottom: 20px; }
+}
