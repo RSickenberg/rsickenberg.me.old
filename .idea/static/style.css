@@ -15,7 +15,7 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-#wrapper {
+#section {
     padding: 50px 40px;
     max-width: 530px;
     margin: 0 auto;
@@ -33,7 +33,7 @@ body {
     color:white;
     height:1px;
     background:black;
-    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#000), to(#fff));
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#b7b7b7), to(#fff));
 }
 #avatarjpg {
     display:inline-block;
@@ -47,4 +47,23 @@ a {
     text-decoration: none;
     color: #5694f1;
     font-weight: 300;
+}
+h1 {
+    font-weight: 300;
+    font-size: 24px;
+    color: #222;
+}
+h2 {
+    font-size: 16px;
+    font-weigth: 300;
+    color: #aaa;
+    margin-top: 10px;
+}
+.line_sexy {
+    margin-top: 21px;
+}
+p{
+    text-align: justify;
+    line-height: 1.7;
+    margin-bottom: 40px;
 }
