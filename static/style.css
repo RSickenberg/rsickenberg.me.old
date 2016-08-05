@@ -1,10 +1,53 @@
 /* Romain Sickenberg's CSS*/
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,img,ins,kbd,q,s,samp,small,strike,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
-*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block
+}
+
+body {
+    line-height: 1
+}
+
+blockquote, q {
+    quotes: none
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 .group:before,
-.group:after { content: ""; display: table;}
-.group:after { clear: both;}
-.group { zoom: 1;}
+.group:after {
+    content: "";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.group {
+    zoom: 1;
+}
 
 body {
     /* font:16px/1 "Helvetica Neue",Helvetica,Arial,sans-serif; */
@@ -20,27 +63,29 @@ body {
     max-width: 530px;
     margin: 0 auto;
 }
+
 #header {
-    border-bottom:0px solid #eee;
-    margin-bottom:15px;
-    padding-bottom:15px;
-    text-align:center;
-    position:relative;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    position: relative;
 }
-.sexy_line{
-    display:block;
-    border:none;
-    color:white;
-    height:1px;
-    background:black;
+
+.sexy_line {
+    display: block;
+    border: none;
+    color: white;
+    height: 1px;
+    background: black;
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#bad133), to(#fff));
 }
+
 #avatarjpg {
-    display:inline-block;
-    width:180px;
-    height:120px;
-    border-radius:50%;
-    margin-bottom:20px;
+    display: inline-block;
+    width: 190px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
 }
 
 a {
@@ -48,69 +93,89 @@ a {
     color: #5694f1;
     font-weight: 300;
 }
+
 h1 {
     font-weight: 300;
     font-size: 24px;
     color: #454545;
 }
+
 h2 {
     font-size: 16px;
     font-weigth: 300;
     color: #aaa;
     margin-top: 10px;
 }
+
 .line_sexy {
     margin-top: 21px;
 }
-p{
+
+p {
     text-align: justify;
     line-height: 1.7;
     margin-bottom: 40px;
 }
 
-
-#liiplogo
-{
-    width:120px;
-   margin-top: 15px;
+#liiplogo {
+    width: 120px;
+    margin-top: 15px;
 }
-.line_sexy2{
+
+.line_sexy2 {
 
     margin-bottom: 21px;
 }
-.daycount{
+
+.daycount {
     color: #a8ba1b;
 
 }
+
 .social {
     text-align: center;
 }
-.social a{
+
+.social a {
     color: #777;
 }
-.social a:hover{
+
+.social a:hover {
     color: #bad133
 }
-.social a:not(:last-child){
+
+.social a:not(:last-child) {
     padding-right: 10px;
 }
-footer, i{
-    border-bottom:0px solid #eee;
-    margin-bottom:15px;
-    padding-bottom:15px;
-    position:relative;
-    padding: 50px 40px;
+
+footer, i {
+    position: relative;
     max-width: 530px;
     margin: 0 auto;
-
+    padding-right: 40px;
+    padding-left: 40px;
 }
+
 @media screen and (max-width: 540px) {
-    #wrapper { padding:40px; }
-    #header { margin-bottom: 40px; }
-    a#docs { display: none; }
+    #wrapper {
+        padding: 40px;
+    }
+
+    #header {
+        margin-bottom: 40px;
+    }
+
+    a#docs {
+        display: none;
+    }
 }
 
-@media screen and (max-width:440px) {
-    #wrapper { padding:40px 20px; }
-    #header { margin-bottom: 20px; }
+@media screen and (max-width: 440px) {
+    #wrapper {
+        padding: 40px 20px;
+    }
+
+    #header {
+        margin-bottom: 20px;
+    }
 }
