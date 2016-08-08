@@ -6,14 +6,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     vertical-align: baseline;
     margin: 0;
     padding: 0;
-    -webkit-animation: blur 0.5s linear forwards;
-    -moz-animation: blur 0.5s linear forwards;
-    -ms-animation: blur 0.5s linear forwards;
-    -o-animation: blur 0.5s linear forwards;
-    animation: blur 0.5s linear forwards;
-    -webkit-animation-delay: 1s;
-    -moz-animation-delay: 1s;
-    animation-delay: 1s;
 }
 
 article, aside, details, figcaption, figure, footer, header, menu, nav, section {
@@ -249,7 +241,7 @@ footer, i {
     margin: 0 auto;
 }
 #loader1 {
-    height: 4px;
+    height: 6px;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -261,9 +253,9 @@ footer, i {
     content: "";
     left: -200px;
     width: 200px;
-    height: 4px;
-    background-color: #bad117;
-    animation: loading 1.5s linear infinite;
+    height: 6px;
+    background-color: #a8ba1b;
+    animation: loading 1.9s cubic-bezier(1,-0.07, 0.86, 1.36) infinite;
 }
 
 @keyframes loading {

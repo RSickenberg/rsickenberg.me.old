@@ -12,6 +12,7 @@
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
     <link rel="icon" type="image/png" href="static/img/LiipCH_Logo.png"/>
     <script src="static/js/__cdnjs.cloudflare.com_ajax_libs_jquery_2.1.3_jquery.js"></script>
+    <script type="text/javascript" src="js/cookie.js"></script>
     <!--- <meta http-equiv="refresh" content="30">---->
 </head>
 
@@ -72,7 +73,6 @@
 </section>
 
 <div id="loader-wrapper">
-    <div id="loader"></div>
 
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
@@ -112,9 +112,20 @@
     $('#loader1').delay(1000).hide(450);
 
 </script>
+<!----- Loading hiding ----->
 <script type="text/javascript">
     $('#loader-wrapper').delay(1100).hide(300);
 </script>
+<!------ Smooth scroll ----->
+<script type="text/javascript">
+    $('a').click(function(){
+        $('html, body').animate({
+            scrollTop: $( $(this).attr('href') ).offset().top
+        }, 1500);
+        return false;
+    });
+</script>
+
 
 </body>
 </html>
