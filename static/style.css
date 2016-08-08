@@ -134,6 +134,8 @@ p {
 
 .social {
     text-align: center;
+    margin-bottom: 18px;
+    border-bottom: 18px;
 }
 
 .social a {

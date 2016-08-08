@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Romain Sickenberg | Projet</title>
+    <meta name="author" content="Romain Sickenberg">
+    <meta name="Keywords" content="Etudiant, liip, informatique, développement d'applications, IOS">
+    <meta name="Robots" content="Index,Folow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="../style.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/png" href="static/img/LiipCH_Logo.png"/>
+    <script src="../js/__cdnjs.cloudflare.com_ajax_libs_jquery_2.1.3_jquery.js"></script>
+</head>
+<body>
+<header id="menu">
+    <button class="hamburger">&#9776;</button>
+    <button class="cross">&#735;</button>
+    <div class="menu">
+        <ul>
+            <a href="../../home.html"><li><i class="fa fa-home fa-2x" aria-hidden="true"></i>Home.</li></a>
+            <a href="project.html"><li><i class="fa fa-pencil fa-2x" aria-hidden="true"></i>Project.</li></a>
+            <a href="idea.html"><li><i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i>Idea.</li></a>
+        </ul>
+    </div>
+</header>
+
+
+
+<div id="section">
+    <h1>Page in progress<i class="fa fa-cog fa-2x"></i></h1>
+</div>
+
+
+
+
+<script type="text/javascript">
+    $( '.cross' ).hide();
+    $( '.menu' ).hide();
+    $( '.hamburger' ).click(function() {
+        $( '.menu' ).slideToggle( "slow", function() {
+            $( '.hamburger' ).hide();
+            $( '.cross' ).show();
+        });
+    });
+
+    $( '.cross' ).click(function() {
+        $( '.menu' ).slideToggle( "slow", function() {
+            $( '.cross' ).hide();
+            $( '.hamburger' ).show();
+        });
+    });
+</script>
+</body>
+</html>

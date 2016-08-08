@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns="">
 <head>
     <meta charset="UTF-8">
     <title>Romain Sickenberg</title>
@@ -22,14 +22,10 @@
     <button class="cross">&#735;</button>
 <div class="menu">
     <ul>
-        <a href="#">
-            <li><i class="fa fa-pencil fa-2x" aria-hidden="true"></i>Project</li>
-            <li><i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i>Idea</li>
-        </a>
-        <a href="#">
-            <li><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>Contact</li>
-        </a>
-    </ul>
+        <a href="static/pages/project.html"><li><i class="fa fa-pencil fa-2x" aria-hidden="true"></i>Project.</li></a>
+        <a href="static/pages/idea.html"><li><i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i>Idea.</li></a>
+        <a href="static/pages/contact.html"><li><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>Contact.</li></a>
+     </ul>
 </div>
 </header>
 
@@ -88,19 +84,19 @@
     document.getElementById("start").innerHTML= str;
 </script>
 <script type="text/javascript">
-    $( ".cross" ).hide();
-    $( ".menu" ).hide();
-    $( ".hamburger" ).click(function() {
-        $( ".menu" ).slideToggle( "slow", function() {
-            $( ".hamburger" ).hide();
-            $( ".cross" ).show();
+    $( '.cross' ).hide();
+    $( '.menu' ).hide();
+    $( '.hamburger' ).click(function() {
+        $( '.menu' ).slideToggle( "slow", function() {
+            $( '.hamburger' ).hide();
+            $( '.cross' ).show();
         });
     });
 
-    $( ".cross" ).click(function() {
-        $( ".menu" ).slideToggle( "slow", function() {
-            $( ".cross" ).hide();
-            $( ".hamburger" ).show();
+    $( '.cross' ).click(function() {
+        $( '.menu' ).slideToggle( "slow", function() {
+            $( '.cross' ).hide();
+            $( '.hamburger' ).show();
         });
     });
 </script>
