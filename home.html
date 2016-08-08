@@ -17,6 +17,7 @@
 
 
 <body>
+<div id="loader1"></div>
 <header id="menu">
     <button class="hamburger">&#9776;</button>
     <button class="cross">&#735;</button>
@@ -70,6 +71,13 @@
 
 </section>
 
+<div id="loader-wrapper">
+    <div id="loader"></div>
+
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+
+</div>
 
 <script type="text/javascript">
 
@@ -100,5 +108,13 @@
         });
     });
 </script>
+<script type="text/javascript">
+    $('#loader1').delay(1000).hide(450);
+
+</script>
+<script type="text/javascript">
+    $('#loader-wrapper').delay(1100).hide(300);
+</script>
+
 </body>
 </html>

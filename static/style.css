@@ -1,14 +1,22 @@
 /* Romain Sickenberg's CSS*/
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     border: 0;
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
     margin: 0;
-    padding: 0
+    padding: 0;
+    -webkit-animation: blur 0.5s linear forwards;
+    -moz-animation: blur 0.5s linear forwards;
+    -ms-animation: blur 0.5s linear forwards;
+    -o-animation: blur 0.5s linear forwards;
+    animation: blur 0.5s linear forwards;
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    animation-delay: 1s;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure, footer, header, menu, nav, section {
     display: block
 }
 
@@ -191,7 +199,7 @@ footer, i {
     font-weight: bold;
     cursor: pointer;
     outline: none;
-    z-index: 10000000000000;
+    z-index: 100000000;
 }
 .menu{
     z-index:1000000;
@@ -240,7 +248,48 @@ footer, i {
     font-size:1.5em;
     margin: 0 auto;
 }
+#loader1 {
+    height: 4px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #ddd;
+}
+#loader1:before{
+    display: block;
+    position: absolute;
+    content: "";
+    left: -200px;
+    width: 200px;
+    height: 4px;
+    background-color: #bad117;
+    animation: loading 1.5s linear infinite;
+}
 
+@keyframes loading {
+    from {left: -200px; width: 30%;}
+    50% {width: 30%;}
+    70% {width: 70%;}
+    80% { left: 50%;}
+    95% {left: 120%;}
+    to {left: 100%;}
+}
+#loader-wrapper .loader-section {
+    position: fixed;
+    top: 4px;
+    width: 51%;
+    height: 100%;
+    background: #222222;
+    z-index: 10000000000000000000000000000;
+}
+
+#loader-wrapper .loader-section.section-left {
+    left: 0;
+}
+
+#loader-wrapper .loader-section.section-right {
+    right: 0;
+}
 
 
 
