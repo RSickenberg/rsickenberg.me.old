@@ -282,6 +282,43 @@ footer, i {
 #loader-wrapper .loader-section.section-right {
     right: 0;
 }
+.info {
+    margin-bottom: 62px;
+    font-size: 29px;
+}
+.info2 {
+    font-size: 17px;
+    right: 47px;
+    position: absolute;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -299,7 +336,6 @@ footer, i {
         display: none;
     }
 }
-
 @media screen and (max-width: 440px) {
     #wrapper {
         padding: 40px 20px;
