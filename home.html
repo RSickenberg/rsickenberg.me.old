@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns="">
+<html lang="fr" xmlns:type="">
 <head>
     <meta charset="UTF-8">
     <title>Romain Sickenberg</title>
@@ -12,7 +12,7 @@
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
     <link rel="icon" type="image/png" href="static/img/LiipCH_Logo.png"/>
     <script src="static/js/__cdnjs.cloudflare.com_ajax_libs_jquery_2.1.3_jquery.js"></script>
-    <script type="text/javascript" src="js/cookie.js"></script>
+    <script src="static/js/jquery.cookie.js"></script>
     <!--- <meta http-equiv="refresh" content="30">---->
 </head>
 
@@ -108,6 +108,15 @@
         });
     });
 </script>
+<script>
+    if ($.cookie('load') == "true") {
+        $('#loader1').hide(1);
+        $('#loader-wrapper').hide(1);
+    }
+    else{
+        $.cookie('load', 'true' , { expires: 1});
+    }
+</script>
 <script type="text/javascript">
     $('#loader1').delay(1000).hide(450);
 
@@ -125,7 +134,5 @@
         return false;
     });
 </script>
-
-
 </body>
 </html>
