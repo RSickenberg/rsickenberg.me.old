@@ -12,6 +12,7 @@
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
     <link rel="icon" type="image/png" href="static/img/LiipCH_Logo.png"/>
     <script src="../js/__cdnjs.cloudflare.com_ajax_libs_jquery_2.1.3_jquery.js"></script>
+    <link rel="stylesheet" href="../sarah.css">
 </head>
 <body>
 <header id="menu">
@@ -32,10 +33,28 @@
     <h1>Page in progress<i class="fa fa-cog fa-2x"></i></h1>
 </div>
 
+<div class="grid">
+    <figure class="effect-sarah">
+        <img src="../img/no_mans_sky_wallpaper_HD_background_download_mobile_iphone_6s_galaxy2.jpg" alt="3D"/>
+        <figcaption>
+            <h2>Project<span>.3D</span></h2>
+            <p>Fait sur Cinéma4D.</p>
+        </figcaption>
+    </figure>
+    <figure class="effect-sarah">
+            <img src="../img/internet-of-things-2.jpg" alt="HTML"/>
+            <figcaption>
+                <h2>Code<span>.HTML</span></h2>
+                <p>Fait maison</p>
+            </figcaption>
+            </figure>
+    </figure>
+</div>
 
 
 
 <script type="text/javascript">
+    //noinspection JSJQueryEfficiency
     $( '.cross' ).hide();
     $( '.menu' ).hide();
     $( '.hamburger' ).click(function() {
@@ -45,6 +64,7 @@
         });
     });
 
+    //noinspection JSJQueryEfficiency
     $( '.cross' ).click(function() {
         $( '.menu' ).slideToggle( "slow", function() {
             $( '.cross' ).hide();

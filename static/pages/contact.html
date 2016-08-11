@@ -42,6 +42,7 @@
 
 
 <script type="text/javascript">
+    //noinspection JSJQueryEfficiency
     $( '.cross' ).hide();
     $( '.menu' ).hide();
     $( '.hamburger' ).click(function() {
@@ -51,6 +52,7 @@
         });
     });
 
+    //noinspection JSJQueryEfficiency
     $( '.cross' ).click(function() {
         $( '.menu' ).slideToggle( "slow", function() {
             $( '.cross' ).hide();

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns:type="">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Romain Sickenberg</title>
@@ -92,6 +92,7 @@
     document.getElementById("start").innerHTML= str;
 </script>
 <script type="text/javascript">
+    //noinspection JSJQueryEfficiency
     $( '.cross' ).hide();
     $( '.menu' ).hide();
     $( '.hamburger' ).click(function() {
@@ -101,6 +102,7 @@
         });
     });
 
+    //noinspection JSJQueryEfficiency
     $( '.cross' ).click(function() {
         $( '.menu' ).slideToggle( "slow", function() {
             $( '.cross' ).hide();
