@@ -291,7 +291,13 @@ footer, i {
     right: 40px;
     position: absolute;
 }
-
+.footer1
+{
+    text-align: center;
+    position: absolute;
+    right: 50px;
+    bottom: -700px;
+}
 
 
 
