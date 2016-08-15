@@ -296,9 +296,12 @@ footer, i {
     text-align: center;
     position: absolute;
     right: 50px;
-    bottom: -700px;
+    bottom: 190px;
 }
-
+.parallax-window {
+    min-height: 400px;
+    background: transparent;
+}
 
 
 
