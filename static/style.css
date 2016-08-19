@@ -291,13 +291,7 @@ footer, i {
     right: 40px;
     position: absolute;
 }
-.footer1
-{
-    text-align: center;
-    position: absolute;
-    right: 50px;
-    bottom: 190px;
-}
+
 .parallax-window {
     min-height: 400px;
     background: transparent;
@@ -344,6 +338,9 @@ footer, i {
     a#docs {
         display: none;
     }
+    .footer1{
+        display: none; !important;
+    }
 }
 @media screen and (max-width: 440px) {
     #wrapper {
@@ -352,5 +349,8 @@ footer, i {
 
     #header {
         margin-bottom: 20px;
+    }
+    .footer1{
+        display: none; !important;
     }
 }
