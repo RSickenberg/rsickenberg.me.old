@@ -255,7 +255,7 @@ footer, i {
     width: 200px;
     height: 6px;
     background-color: #a8ba1b;
-    animation: loading 1.9s cubic-bezier(1,-0.07, 0.86, 1.36) infinite;
+    animation: loading 1.9s cubic-bezier(1,-0.62, 0.58, 1) infinite;
 }
 
 @keyframes loading {
