@@ -98,6 +98,7 @@ h1 {
     font-weight: 300;
     font-size: 24px;
     color: #454545;
+    -webkit-font-smoothing : antialiased;
 }
 
 h2 {
@@ -161,7 +162,7 @@ footer, i {
     width: 100%;
     background: #000000;
     height: 47px;
-    line-height: 50px;
+    line-height: 87px;
 }
 .hamburger{
     background: none;
@@ -197,7 +198,7 @@ footer, i {
     z-index:1000000;
     font-weight:bold;
     font-size:0.8em;
-    width:100%;
+    width: 100%;
     background: #252d09;
     position:absolute;
     text-align:center;
