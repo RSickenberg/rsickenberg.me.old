@@ -302,11 +302,11 @@ footer, i {
 }
 
 .parallax-window1 {
-    min-height: 450px;
+    min-height: 400px;
     background: transparent;
 }
 .parallax-window {
-    min-height: 450px;
+    min-height: 400px;
     background: transparent;
 }
 
@@ -317,8 +317,15 @@ footer, i {
 head {
     background: black;
 }
-
-
+.liip_power {
+    width: 250px;
+    position: relative;
+    right: 0px;
+    left: 0px;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
 
 
 
