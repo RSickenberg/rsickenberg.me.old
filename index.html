@@ -42,17 +42,18 @@
         <a href="static/pages/project.html"><li><i class="fa fa-pencil fa-2x" aria-hidden="true"></i>Project.</li></a>
         <a href="static/pages/idea.html"><li><i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i>Idea.</li></a>
         <a href="static/pages/contact.html"><li><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>Contact.</li></a>
-        <a href="https://stackoverflow.com/users/6914561/romain-sickenberg">
-		<img src="https://stackoverflow.com/users/flair/6914561.png?theme=dark" width="208" height="58" alt="profile for Romain Sickenberg at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Romain Sickenberg at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+        <a href="https://stackoverflow.com/users/6914561/romain-sickenberg" class="stackoverflow">
+		<img src="https://stackoverflow.com/users/flair/6914561.png?theme=dark" width="208" height="58" alt="profile for Romain Sickenberg at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Romain Sickenberg at Stack Overflow, Q&amp;A for professional and enthusiast programmers" >
 		</a>
      </ul>
 </div>
+    
 </header>
-<div class="parallax-window" data-parallax="scroll" data-image-src="static/img/effect.jpg" androidFix="False"></div>
-
+<div class="parallax-window" data-parallax="scroll" data-image-src="static/img/paralax.png" data-androidFix="False" data-speed="0.4" data-bleed="20"></div>
 
 
 <section id="section">
+    
     <header id="header">
         <a class="avatar"><img id="avatarjpg" src="static/img/self.png"/></a>
             <div class="line_sexy2">
@@ -61,7 +62,7 @@
         <h1>Romain Sickenberg</h1>
         <h2>Apprentice Software developer</h2>
         <!---- Add liip's logo---->
-        <a class="liip" href="http://www.liip.ch"><img id="liiplogo" src="static/img/logo.png"/></a>
+        <a class="liip" href="http://www.liip.ch"><img id="liiplogo" src="static/img/Liip_logo.png"/></a>
         <div class="line_sexy">
             <span class="sexy_line"></span>
         </div>
@@ -77,23 +78,23 @@
 </section>
 
 
-
 <section class="social">
     <a href="https://twitter.com/liip?lang=fr"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
     <a href="mailto:romain.sickenberg@liip.ch"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a>
     <a href="https://github.com/RSickenberg"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
 
 </section>
+</br>
+</section>
 
 <div id="loader-wrapper">
-
+    
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
 
-</div>
-</br>
-</section>
-<div class="parallax-window" data-parallax="scroll" data-image-src="static/img/effect.jpg" androidFix="False"></div>
+</div>  s
+
+<div class="parallax-window" data-parallax="scroll" data-image-src="static/img/paralax1.png" data-androidFix="False" data-speed="0.5" data-bleed="20"></div>
 
 
 
@@ -113,6 +114,8 @@
     document.getElementById("date").innerHTML = date;
     document.getElementById("start").innerHTML= str;
 </script>
+
+
 <script type="text/javascript">
     //noinspection JSJQueryEfficiency
     $( '.cross' ).hide();
@@ -142,14 +145,14 @@
     }
 </script>
 <script type="text/javascript">
-    $('#loader1').delay(1000).hide(450);
+    $('#loader1').delay(1000).hide(150);
 
 </script>
 <!----- Loading hiding ------>
 <script type="text/javascript">
     $('#loader-wrapper').delay(1100).hide(300);
 </script>
-<!------ Smooth scroll ------>
+<!------ Smooth scroll---->
 <script type="text/javascript">
     $('a').click(function(){
         $('html, body').animate({

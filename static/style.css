@@ -59,9 +59,11 @@ body {
 }
 
 #section {
-    padding: 50px 40px;
-    max-width: 530px;
-    margin: 0 auto;
+    padding: 50px 10px;
+    max-width: 470px;
+    margin: 0px auto;
+    margin-bottom: 10px auto;
+    margin-top: 35px auto;
 }
 
 #header {
@@ -69,6 +71,7 @@ body {
     padding-bottom: 15px;
     text-align: center;
     position: relative;
+
 }
 
 .sexy_line {
@@ -119,9 +122,9 @@ p {
 }
 
 #liiplogo {
-    width: 120px;
-    margin-top: 15px;
-    margin-bottom: -11px;
+    width: 110px;
+    margin-top: 10px;
+    margin-bottom: -10px;
 }
 
 .line_sexy2 {
@@ -130,7 +133,7 @@ p {
 }
 
 .daycount {
-    color: #a8ba1b;
+    color: #6EA644;
 
 }
 
@@ -162,15 +165,16 @@ footer, i {
 #menu{
     width: 100%;
     background: #000000;
-    height: 47px;
-    line-height: 87px;
+    height: 50px;
+    line-height: 103px;
 }
+
 .hamburger{
     background: none;
     position: absolute;
     top:0;
     right:0;
-    line-height: 45px;
+    line-height: 49px;
     padding: 0px 15px 0px 15px;
     color: #ffffff;
     border:0;
@@ -189,7 +193,7 @@ footer, i {
     color: #ffffff;
     border:0;
     font-size:3em;
-    line-height: 65px;
+    line-height: 85px;
     font-weight: bold;
     cursor: pointer;
     outline: none;
@@ -201,18 +205,20 @@ footer, i {
     font-size:0.8em;
     width: 100%;
     background: #252d09;
-    position:absolute;
+    position: absolute;
     text-align:center;
 }
 .menu ul {
     margin: 0;
     padding: 0;
     list-style: none none;
+    
 }
 .menu li {
     display: block;
     padding:15px 0 15px 0;
     border-bottom: #292929 1px solid;
+    
 }
 .menu li:hover{
     display: block;
@@ -224,6 +230,7 @@ footer, i {
     text-decoration:none;
     margin: 0px;
     color:#fff;
+    
 }
 .menu ul li a:hover {
     color: #fff;
@@ -297,16 +304,17 @@ footer, i {
 .parallax-window {
     min-height: 400px;
     background: transparent;
+    
 }
 
 
+.stackoverflow {
+    text-align: center;
+}
 
-
-
-
-
-
-
+head {
+    background: black;
+}
 
 
 
