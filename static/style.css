@@ -166,7 +166,7 @@ footer, i {
     width: 100%;
     background: #000000;
     height: 50px;
-    line-height: 107px; /* Gère la longeur verticale du drop */
+    line-height: 95px; /* Gère la longeur verticale du drop */
 }
 
 .hamburger{
