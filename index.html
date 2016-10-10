@@ -142,12 +142,12 @@
 </script>
 
 <script>
-    if ($.cookie('load') == "true") {
+    if (Cookies.get('load') == "true") {
         $('#loader1').hide(1);
         $('#loader-wrapper').hide(1);
     }
     else{
-        $.cookie('load', 'true' , { expires: 1});
+        Cookies.set('load', 'true');
     }
 </script>
 <script type="text/javascript">
