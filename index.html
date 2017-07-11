@@ -34,6 +34,9 @@
 
 
 <body>
+<script id="__bs_script__">//<![CDATA[
+document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.18.12'><\/script>".replace("HOST", location.hostname));
+//]]></script>
 <div id="loader1"></div>
 <header id="menu">
     <button class="hamburger">&#9776;</button>
@@ -50,7 +53,7 @@
 </div>
     
 </header>
-<div class="parallax-window" data-parallax="scroll" data-image-src="static/img/paralax.png" data-androidFix="False" data-speed="0.4" data-bleed="23" data-natural-width="1400" data-natural-height="900"></div>
+<div class="parallax-window" data-parallax="scroll" data-image-src="static/img/paralax.png" data-android-Fix="true" data-ios-fix="true" data-speed="0.2" data-bleed="23" data-natural-width="1400" data-natural-height="900"></div>
 
 
 <section id="section">
@@ -95,7 +98,7 @@
 
 </div>
 
-<div class="parallax-window1" data-parallax="scroll" data-image-src="static/img/paralax1.png" data-androidFix="False" data-speed="0.5" data-bleed="20" data-natural-width="1400" data-natural-height="900"></div>
+<div class="parallax-window1" data-parallax="scroll" data-image-src="static/img/paralax1.png" data-android-Fix="true" data-ios-fix="true" data-speed="0.2" data-bleed="23" data-natural-width="1300" data-natural-height="900"></div>
 
 
 
@@ -141,7 +144,7 @@
 </script>
 
 <script>
-    if (Cookies.get('load') == "true") {
+    if (Cookies.get('load') === "true") {
         $('#loader1').hide(0);
         $('#loader-wrapper').hide(0);
     }
@@ -166,7 +169,6 @@
         return false;
     });
 </script>
-
 </body>
 </html>
 
