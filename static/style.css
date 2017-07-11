@@ -85,10 +85,11 @@ body {
 
 #avatarjpg {
     display: inline-block;
-    width: 186px;
-    height: 120px;
-    border-radius: 50%;
+    width: 144px;
     margin-bottom: 20px;
+    right: 10px;
+    position: relative;
+    border-radius: 50%;
 }
 
 a {
@@ -218,6 +219,8 @@ footer, i {
     display: block;
     padding:15px 0 15px 0;
     border-bottom: #292929 1px solid;
+    right: 30px;
+    position: relative;
     
 }
 .menu li:hover{
@@ -294,6 +297,8 @@ footer, i {
 .info {
     margin-bottom: 62px;
     font-size: 29px;
+    position: relative;
+
 }
 .info2 {
     font-size: 17px;
@@ -323,8 +328,8 @@ head {
     right: 0px;
     left: 0px;
     align-items: center;
-    margin-top: 30px;
-    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-bottom: 10px;
 }
 
 
