@@ -61,9 +61,7 @@ body {
 #section {
     padding: 50px 10px;
     max-width: 470px;
-    margin: 0px auto;
-    padding-bottom: 20px ;
-    margin-top: 25px;
+    margin: 25px auto;
 }
 
 #header {
@@ -219,13 +217,12 @@ footer, i {
     display: block;
     padding:15px 0 15px 0;
     border-bottom: #292929 1px solid;
-    right: 30px;
     position: relative;
     
 }
 .menu li:hover{
     display: block;
-    background: #000000;
+    background: #161d08;
     padding:15px 0 15px 0;
     border-bottom:#1d1f20 1px solid;
 }

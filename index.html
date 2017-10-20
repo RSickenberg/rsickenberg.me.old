@@ -12,7 +12,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
     <link rel="icon" type="image/png" href="static/img/icon.png"/>
-    <!--- <meta http-equiv="refresh" content="30">---->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -42,9 +41,7 @@
         <!--<a href="static/pages/project.html"><li><i class="fa fa-pencil fa-2x" aria-hidden="true"></i>Project.</li></a>--->
         <!--<a href="static/pages/idea.html"><li><i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i>Idea.</li></a>-->
         <a href="static/pages/contact.html"><li><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>Contact.</li></a>
-        <a href="https://stackoverflow.com/users/6914561/romain-sickenberg" class="stackoverflow">
-		<img src="https://stackoverflow.com/users/flair/6914561.png?theme=dark" width="208" height="58" alt="profile for Romain Sickenberg at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Romain Sickenberg at Stack Overflow, Q&amp;A for professional and enthusiast programmers" >
-		</a>
+        <a href="https://stackoverflow.com/users/6914561/romain-sickenberg" class="stackoverflow"></a>
      </ul>
 </div>
     
@@ -71,10 +68,10 @@
 
 <section>
         </br>
-        <p>Hi, my name is <strong>Romain Sickenberg</strong>. I work on <a href="http://www.liip.ch">Liip</a>'s office
-            at Lausanne as apprentice software developer !</p>
-        <p>I'm 18 years old, and I make websites, iOS app's, Android app's and other softs.</p>
-        <p class="daycount">I started on <span id="start"></span>. So I work since <span id="date"></span></p>
+        <p>Hi, my name is <strong>Romain Sickenberg</strong>. I'm <span class="daycount" id="bday"></span> old. <br> I work on <a href="http://www.liip.ch">Liip</a>'s office
+            at Lausanne as apprentice software developer !<br><br>
+            I Experienced PHP, JS, Swift, C#, SQL and JAVA.</p>
+        <p>I'm working at Liip since <span class="daycount" id="date"></span>.</p>
 </section>
 
 
@@ -82,7 +79,6 @@
     <a href="https://twitter.com/liip?lang=fr"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
     <a href="mailto:romain.sickenberg@liip.ch"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a>
     <a href="https://github.com/RSickenberg"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
-    <img class="liip_power" src="static/img/Liip_Logo_Powered-by_s_green.png">
 </section>
 </br>
 </section>
@@ -106,19 +102,21 @@
 
 
 <script type="text/javascript">
-
-    //Set the two dates
     var millennium = new Date(2016, 7, 2);
     today = new Date();
     var one_day = 1000 * 60 * 60 * 24;
-    var str = millennium.toLocaleDateString("fr-CH");
     var date = Math.ceil((today.getTime() - millennium.getTime()) / (one_day)) +
             " days";
     document.getElementById("date").innerHTML = date;
-    document.getElementById("start").innerHTML= str;
 </script>
-
-
+<script type="text/javascript">
+    var millennium = new Date(1998, 5, 18);
+    today = new Date();
+    var one_year = 31556908800;
+    var date = Math.ceil((today.getTime() - millennium.getTime()) / (one_year)) +
+        " years";
+    document.getElementById("bday").innerHTML = date;
+</script>
 <script type="text/javascript">
     //noinspection JSJQueryEfficiency
     $( '.cross' ).hide();
@@ -155,15 +153,6 @@
 <!----- Loading hiding ------>
 <script type="text/javascript">
     $('#loader-wrapper').delay(1100).hide(300);
-</script>
-<!------ Smooth scroll---->
-<script type="text/javascript">
-    $('a').click(function(){
-        $('html, body').animate({
-            scrollTop: $( $(this).attr('href') ).offset().top
-        }, 1500);
-        return false;
-    });
 </script>
 </body>
 </html>
