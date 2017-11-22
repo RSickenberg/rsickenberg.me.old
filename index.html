@@ -32,7 +32,6 @@
 
 
 <body>
-<div id="loader1"></div>
 <header id="menu">
     <button class="hamburger">&#9776;</button>
     <button class="cross">&#735;</button>
@@ -46,8 +45,9 @@
     </div>
 
 </header>
-<div class="parallax-window" data-parallax="scroll" data-image-src="static/img/paralax.png" data-android-Fix="true" data-ios-fix="true" data-speed="0.2" data-bleed="23" data-natural-width="1400" data-natural-height="900"></div>
-
+<div>
+    <div class="parallax-window" data-parallax="scroll" data-image-src="static/img/paralax.png" data-android-Fix="true" data-ios-fix="true" data-speed="0.2" data-bleed="23" data-natural-width="1400" data-natural-height="900"></div>
+</div>
 
 <section id="section">
 
@@ -82,25 +82,9 @@
     </section>
     </br>
 </section>
-
-<div id="loader-wrapper">
-
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
-
+<div>
+    <div class="parallax-window1" data-parallax="scroll" data-image-src="static/img/paralax1.png" data-android-Fix="true" data-ios-fix="true" data-speed="0.2" data-bleed="23" data-natural-width="1300" data-natural-height="900"></div>
 </div>
-
-<div class="parallax-window1" data-parallax="scroll" data-image-src="static/img/paralax1.png" data-android-Fix="true" data-ios-fix="true" data-speed="0.2" data-bleed="23" data-natural-width="1300" data-natural-height="900"></div>
-
-
-
-
-
-
-
-
-
-
 <script type="text/javascript">
     var millennium = new Date(2016, 7, 2);
     today = new Date();
@@ -135,24 +119,6 @@
             $( '.hamburger' ).show();
         });
     });
-</script>
-
-<script>
-    if (Cookies.get('load') === "true") {
-        $('#loader1').hide(0);
-        $('#loader-wrapper').hide(0);
-    }
-    else{
-        Cookies.set('load', 'true');
-    }
-</script>
-<script type="text/javascript">
-    $('#loader1').delay(1000).hide(150);
-
-</script>
-<!----- Loading hiding ------>
-<script type="text/javascript">
-    $('#loader-wrapper').delay(1100).hide(300);
 </script>
 </body>
 </html>
