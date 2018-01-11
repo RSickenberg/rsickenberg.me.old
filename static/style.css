@@ -331,6 +331,10 @@ head {
     .footer1{
         display: none; !important;
     }
+    footer, i {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 }
 @media screen and (max-width: 440px) {
     #wrapper {
@@ -340,7 +344,12 @@ head {
     #header {
         margin-bottom: 20px;
     }
-    .footer1{
+    .footer1 {
         display: none; !important;
+    }
+
+    footer, i {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
