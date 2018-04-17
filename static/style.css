@@ -302,6 +302,15 @@ head {
     #menu {
         line-height: 45px;
     }
+
+    .social {
+        width: 300px;
+        margin-left: 20px;
+    }
+
+    .fa-2x {
+        font-size: 1.4em !important;
+    }
 }
 
 
