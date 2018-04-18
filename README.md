@@ -1,2 +1,2 @@
 # Portfolio
-Acess with https://rsickenberg.github.io/portfolio/index.html
+Acess with http://rsickenberg.me
