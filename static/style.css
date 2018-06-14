@@ -275,8 +275,7 @@ head {
         line-height: 45px;
     }
     .social {
-        width: 300px;
-        margin-left: 20px;
+        width: 455px;
     }
     .fa-2x {
         font-size: 1.4em !important;
@@ -300,6 +299,9 @@ head {
     footer, i {
         padding-left: 30px;
         padding-right: 30px;
+    }
+    .social {
+        width: auto;
     }
 }
 @media screen and (max-width: 440px) {

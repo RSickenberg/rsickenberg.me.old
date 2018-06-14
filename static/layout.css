@@ -89,7 +89,7 @@ h2,h3,h4,h5,h6 {
 .app-icon {
     padding-bottom: 4em;
     right: auto;
-    bottom: 0.5em;
+    bottom: 1em;
     position: relative;
 }
 .apple-store-badge {
@@ -104,11 +104,30 @@ h2,h3,h4,h5,h6 {
     display: inline-block;
     position: relative;
 }
+.full {
+    display: inline;
+    float: left;
+    position: relative;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 96%;
+}
+.full ul li {
+    display: inline-block;
+    margin: 2em 9em;
+}
 section {
     margin: 0 auto;
     min-width: 300px;
     max-width: 1000px;
     width: 96%;
+}
+.panel {
+    margin-top: 2em;
+    background-color: #f7f7f7;
+    width: 100vw;
+    height: 20vh;
+    max-width: none;
 }
 @media only screen and (max-width: 900px) {
     .title-text {
@@ -157,12 +176,12 @@ section {
         font-size: 50px;
     }
     .title-text > h2 {
-        font-size: 50px;
+        font-size: 40px;
     }
     .title-text > h5 {
         font-size: 30px;
     }
     .app-icon {
-        padding-bottom: 1em;
+        padding-bottom: 0;
     }
 }
