@@ -7,48 +7,27 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     margin: 0;
     padding: 0;
 }
-
 article, aside, details, figcaption, figure, footer, header, menu, nav, section {
     display: block
 }
-
 body {
     line-height: 1
 }
-
 blockquote, q {
     quotes: none
 }
-
 blockquote:before, blockquote:after, q:before, q:after {
     content: none
 }
-
 table {
     border-collapse: collapse;
     border-spacing: 0
 }
-
 *, *:before, *:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
-
-.group:before,
-.group:after {
-    content: "";
-    display: table;
-}
-
-.group:after {
-    clear: both;
-}
-
-.group {
-    zoom: 1;
-}
-
 body {
     /* font:16px/1 "Helvetica Neue",Helvetica,Arial,sans-serif; */
     font-family: 'Montserrat', sans-serif;
@@ -57,20 +36,17 @@ body {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
-
 #section {
     padding: 50px 10px;
     max-width: 470px;
     margin: 25px auto;
 }
-
 #header {
     margin-top: 10px;
     padding-bottom: 10px;
     text-align: center;
     position: relative;
 }
-
 .sexy_line {
     display: block;
     border: none;
@@ -79,7 +55,6 @@ body {
     background: black;
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#bad133), to(#fff));
 }
-
 .fortnite_sexy_line {
     display: block;
     border: none;
@@ -88,7 +63,6 @@ body {
     background: black;
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#8c1bd1), to(#fff));
 }
-
 #avatarjpg {
     display: inline-block;
     width: 144px;
@@ -97,100 +71,74 @@ body {
     position: relative;
     border-radius: 50%;
 }
-
-#fortniteAvatar {
-    display: inline-block;
-    width: 144px;
-    margin-bottom: 20px;
-    position: relative;
-    border-radius: 20%;
-}
-
 #app-storeBadge {
     width: 200px;
 }
-
 .app-store {
     text-align: center;
     margin-top: 21px;
 }
-
 .lookUp {
     height: auto;
     width: auto;
     margin-top: 80px;
 }
-
 .lookImage {
     height: 420px;
     width: 672px;
 }
-
 a {
     text-decoration: none;
     color: #5694f1;
     font-weight: 300;
 }
-
 h1 {
     font-weight: 300;
     font-size: 24px;
     color: #454545;
     -webkit-font-smoothing : antialiased;
 }
-
 h2 {
     font-size: 17px;
     font-weight: 300;
     color: #aaa;
     margin-top: 10px;
 }
-
 .line_sexy {
     margin-top: 21px;
     margin-bottom: 21px;
 }
-
 p {
     text-align: justify;
     line-height: 1.7;
     margin-bottom: 40px;
 }
-
 #liiplogo {
     width: 110px;
     margin-top: 10px;
     margin-bottom: -10px;
 }
-
 .line_sexy2 {
     margin-bottom: 21px;
 }
-
 .daycount {
     color: #6EA644;
-
 }
-
 .social {
     text-align: center;
     margin-bottom: 18px;
     border-bottom: 18px;
     width: 497px;
 }
-
 .social a {
     color: #777;
 }
-
 .social a:hover {
     color: #bad133;
 }
-
 .social a:not(:last-child) {
     padding-right: 10px;
 }
-
 footer, i {
     position: relative;
     max-width: 530px;
@@ -199,12 +147,11 @@ footer, i {
     padding-left: 40px;
 }
 #menu{
-    width: auto;
+    width: 500%;
     background: #000000;
     height: 50px;
     line-height: 171px; /* Gère la longeur verticale du drop */
 }
-
 .hamburger{
     background: none;
     position: absolute;
@@ -248,14 +195,12 @@ footer, i {
     margin: 0;
     padding: 0;
     list-style: none none;
-    
 }
 .menu li {
     display: block;
     padding:15px 0 15px 0;
     border-bottom: #292929 1px solid;
     position: relative;
-    
 }
 .menu li:hover{
     display: block;
@@ -267,7 +212,6 @@ footer, i {
     text-decoration:none;
     margin: 0px;
     color:#fff;
-    
 }
 .menu ul li a:hover {
     color: #fff;
@@ -297,7 +241,6 @@ footer, i {
     right: 40px;
     position: absolute;
 }
-
 .parallax-window1 {
     min-height: 300px;
     background: transparent;
@@ -306,11 +249,9 @@ footer, i {
     min-height: 300px;
     background: transparent;
 }
-
 .stackoverflow {
     text-align: center;
 }
-
 head {
     background: black;
 }
@@ -323,33 +264,24 @@ head {
     margin-top: 40px;
     margin-bottom: 10px;
 }
-
-
 @media only screen and (max-device-width: 1024px) {
-
     .parallax-window1 {
         min-height: 100px;
     }
-
     .parallax-window {
         min-height: 100px;
     }
-
     #menu {
         line-height: 45px;
     }
-
     .social {
         width: 300px;
         margin-left: 20px;
     }
-
     .fa-2x {
         font-size: 1.4em !important;
     }
 }
-
-
 @media screen and (max-width: 540px) {
     #wrapper {
         padding: 40px;
