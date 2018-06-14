@@ -79,6 +79,9 @@ h2,h3,h4,h5,h6 {
     width: 46%;
     float: left;
 }
+.title-text {
+    text-align: left;
+}
 .content .half-right {
     width: 46%;
     float: right;
@@ -89,14 +92,28 @@ h2,h3,h4,h5,h6 {
     bottom: 0.5em;
     position: relative;
 }
+.apple-store-badge {
+    margin-top: 2em;
+    display: inline-block;
+}
+.apple-store-badge > img {
+    background: url(https://linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;
+    width: 65%;
+    height: 65%;
+    background-size: contain;
+    display: inline-block;
+    position: relative;
+}
 section {
     margin: 0 auto;
     min-width: 300px;
     max-width: 1000px;
     width: 96%;
 }
-
 @media only screen and (max-width: 900px) {
+    .title-text {
+        text-align: center;
+    }
     .half-left {
         width: 100% !important;
         float: none !important;
@@ -117,8 +134,15 @@ section {
     .app-icon {
         padding-bottom: 3em;
     }
+    .apple-store-badge {
+        margin-top: 2%;
+        margin-bottom: -2%;
+    }
 }
 @media only screen and (max-width: 700px) {
+    .title-text {
+        text-align: center;
+    }
     .half-right {
         width: 100% !important;
         float: none !important;
