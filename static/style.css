@@ -69,7 +69,6 @@ body {
     padding-bottom: 10px;
     text-align: center;
     position: relative;
-
 }
 
 .sexy_line {
@@ -200,7 +199,7 @@ footer, i {
     padding-left: 40px;
 }
 #menu{
-    width: 100%;
+    width: auto;
     background: #000000;
     height: 50px;
     line-height: 171px; /* Gère la longeur verticale du drop */
