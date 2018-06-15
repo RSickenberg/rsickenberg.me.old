@@ -16,7 +16,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     text-rendering: optimizeLegibility;
 }
 #menu{
-    width: 100vw;
+    position: relative;
+    width: 100%;
     background: #000000;
     height: 50px;
     line-height: 171px; /* Gère la longeur verticale du drop */
@@ -75,9 +76,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     font-family: 'Burbank-light', serif;
     font-size: 40px;
 }
+.title-text > h5 {
+    margin-bottom: 1em;
+}
 .marketing{
-    font-family: 'Burbank-light', serif;
-    font-size: 30px;
+    font-family: "Burbank Big Condensed", serif;
+    font-size: 28px;
 }
 @media only screen and (max-width: 1024px) {
     #header > h5 {
