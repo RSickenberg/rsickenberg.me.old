@@ -114,9 +114,9 @@ h2,h3,h4,h5,h6 {
     display: flex;
     justify-content: center;
     position: relative;
-    margin-left: 2%;
-    margin-right: 2%;
-    width: 96%;
+    /*margin-left: 2%;*/
+    /*margin-right: 2%;*/
+    width: 100%;
 }
 .full ul li {
     display: inline-block;
@@ -162,6 +162,15 @@ section {
     .apple-store-badge {
         margin-top: 2%;
         margin-bottom: -2%;
+    }
+    .full {
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+        background: #8ddbfc; /* Old browsers */
+        background: -moz-linear-gradient(-45deg, #8ddbfc 0%, #b097ef 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg, #8ddbfc 0%,#b097ef 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg, #8ddbfc 0%,#b097ef 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ddbfc', endColorstr='#b097ef',GradientType=1 ); /* IE6-9 radient */
     }
     .full ul li {
         display: block;
