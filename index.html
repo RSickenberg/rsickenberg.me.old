@@ -7,17 +7,17 @@
     <meta name="Keywords" content="Etudiant, liip, informatique, développement d'applications, IOS, Romain,Sickenberg, Sickenberg Romain">
     <meta name="Description" content="Web Site about Romain Sickenberg's resume and work">
     <meta name="Robots" content="Index,Folow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="stylesheet" href="static/style.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
     <link rel="icon" type="image/png" href="static/img/icon.png"/>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <script src="static/js/jquery.js"></script>
-    <script async src="static/js/jquery.cookie.js"></script>
-    <script async src="static/js/parallax.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script async src="node_modules/jquery.cookie/jquery.cookie.js"></script>
+    <script async src="node_modules/jquery-parallax.js/parallax.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83619616-1"></script>
     <script>
@@ -28,25 +28,21 @@
         gtag('config', 'UA-83619616-1');
     </script>
 </head>
-
-
 <body>
 <header id="menu">
     <button class="hamburger">&#9776;</button>
     <button class="cross">&#735;</button>
     <div class="menu">
         <ul>
-            <a href="static/pages/contact.html"><li><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>Contact.</li></a>
+            <a href="static/pages/contact.html"><li><i class="fas fa-phone fa-2x" aria-hidden="true"></i>Contact.</li></a>
         </ul>
     </div>
-
 </header>
 <div>
     <div class="parallax-window" data-parallax="scroll" data-image-src="static/img/paralax.png" data-android-Fix="true" data-ios-fix="true" data-speed="0.2" data-bleed="23" data-natural-width="1400" data-natural-height="900"></div>
 </div>
 
 <section id="section">
-
     <header id="header">
         <a class="avatar"><img id="avatarjpg" src="static/img/profile.png"/></a>
         <div class="line_sexy2">
@@ -60,21 +56,22 @@
         </div>
     </header>
 
-
     <section>
         </br>
         <p>Hi, my name is <strong>Romain Sickenberg</strong>. I'm <span class="daycount" id="bday"></span> old. <br> I work on <a href="http://www.liip.ch">Liip</a>'s office
             at Lausanne as apprentice software developer !<br><br>
             I Experienced PHP, JS, Swift, C#, SQL and JAVA.</p>
         <p>I'm working at Liip since <span class="daycount" id="date"></span>.</p>
+
+        <p>Psst, look what I've done on the App Store : <a href="static/pages/fortniteWiki.html">Here.</a></p>
     </section>
 
 
     <section class="social">
-        <a href="https://www.linkedin.com/in/romain-sickenberg"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
-        <a href="https://github.com/RSickenberg"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
-        <a href="https://twitter.com/liip?lang=fr"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
-        <a href="mailto:romain.sickenberg@liip.ch"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/romain-sickenberg"><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i></a>
+        <a href="https://github.com/RSickenberg"><i class="fab fa-github fa-2x" aria-hidden="true"></i></a>
+        <a href="https://twitter.com/liip?lang=fr"><i class="fab fa-twitter fa-2x" aria-hidden="true"></i></a>
+        <a href="mailto:romain.sickenberg@liip.ch"><i class="fas fa-envelope fa-2x" aria-hidden="true"></i></a>
     </section>
     </br>
 </section>

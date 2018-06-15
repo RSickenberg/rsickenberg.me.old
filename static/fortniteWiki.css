@@ -1,0 +1,106 @@
+@font-face {
+    font-family: 'Burbank'; /*a name to be used later*/
+    font-weight: bold;
+    src: url('fonts/burbank/BurbankBigCondensed-Bold.otf') format("opentype"); /*URL to font*/
+}
+@font-face {
+    font-family: 'Burbank-light';
+    font-weight: normal;
+    src: url('fonts/burbank/BurbankBigRegular-Light.otf') format("opentype");
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    font-family: 'Burbank', "Burbank Big Condensed", Optima, monospace;
+    font-size: 35px;
+    color: #000000;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+#menu{
+    position: relative;
+    width: 100%;
+    background: #000000;
+    height: 50px;
+    line-height: 171px; /* Gère la longeur verticale du drop */
+}
+#fortniteAvatar {
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+    left: 1px;
+}
+#header {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    position: relative;
+}
+#menu > .return-home {
+    /*Position*/
+    display: block;
+    position: absolute;
+    line-height: 50px;
+    overflow: auto;
+    left: auto;
+    top: 3px;
+}
+#header > .app-name {
+    font-size: 26px;
+    color: #7a7a7a;
+    font-weight: normal;
+}
+.return-home a {
+    /*Text*/
+    color: #FFFFFF;
+}
+.return-home i {
+    /*icon*/
+    color: #FFFFFF;
+    padding-right: 20px;
+    padding-left: 10px;
+}
+.return-home a:hover {
+    text-decoration: none;
+}
+#header > h5 {
+    text-overflow: clip;
+    margin-top: 20px;
+    white-space: nowrap;
+}
+.title-text > h1 {
+    font-size: 59px;
+}
+.title-text > h2 {
+    font-size: 43px;
+}
+.title-text > h3,h4,h5 {
+    font-family: 'Burbank-light', serif;
+    font-size: 40px;
+}
+.title-text > h5 {
+    margin-bottom: 1em;
+}
+.marketing {
+    font-family: "Burbank Big Condensed", serif;
+    font-size: 28px;
+}
+@media only screen and (max-width: 1024px) {
+    #header > h5 {
+        text-overflow: clip;
+        margin-top: 20px;
+        white-space: normal;
+    }
+}
+@media screen and (max-width: 540px) {
+    #header > h5 {
+        text-overflow: clip;
+        margin-top: 20px;
+        white-space: normal;
+    }
+}
+@media screen and (max-width: 440px) {
+    #header > h5 {
+        text-overflow: clip;
+        margin-top: 20px;
+        white-space: normal;
+    }
+}

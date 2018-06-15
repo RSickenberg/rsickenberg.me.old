@@ -1,0 +1,38 @@
+{
+  "name": "rsickenberg.me",
+  "version": "2.0.0",
+  "description": "A website for me and my projects",
+  "main": "index.html",
+  "scripts": {
+    "build-css": "webpack --config webpack.prod.js --progress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RSickenberg/Sickenberg.me.git"
+  },
+  "author": "Romain Sickenberg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RSickenberg/Sickenberg.me/issues"
+  },
+  "homepage": "https://github.com/RSickenberg/Sickenberg.me#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "bulma-carousel": "^3.0.0",
+    "jquery": "^3.3.1",
+    "jquery-parallax.js": "^1.5.0",
+    "jquery.cookie": "^1.4.1",
+    "popper.js": "^1.14.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.6.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "node-sass": "^4.9.0",
+    "path": "^0.12.7",
+    "sass-loader": "^7.0.3",
+    "webpack": "^4.12.0",
+    "webpack-command": "^0.2.1",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.3"
+  }
+}
