@@ -25,7 +25,7 @@
         gtag('config', 'UA-83619616-1');
     </script>
 </head>
-<body>
+<body onload="window.addEventListener('resize', setPanels); setPanels();">
 <header id="menu">
     <div class="return-home">
         <a href="../../index.html"><i class="fas fa-angle-left" aria-hidden="true"></i>Home</a>
@@ -67,5 +67,23 @@
         </article>
     </section>
 </main>
+<script defer>
+    function setPanels()
+    {
+        var windowWidth = window.innerWidth;
+        if(windowWidth < 510)
+        {
+            document.getElementById('fortniteAvatar').src = '../img/fortniteWiki/appicon.png';
+            document.getElementById('fortniteAvatar').style.borderRadius = '25%';
+            document.getElementById('fortniteAvatar').style.width = '50%';
+        }
+        else if(windowWidth > 510)
+        {
+            document.getElementById('fortniteAvatar').src = '../img/fortniteWiki/marketingMask/appicon2.png';
+            document.getElementById('fortniteAvatar').style.borderRadius = '0';
+            document.getElementById('fortniteAvatar').style.width = '100%';
+        }
+    }
+</script>
 </body>
 </html>
