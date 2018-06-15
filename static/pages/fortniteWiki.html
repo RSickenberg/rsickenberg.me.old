@@ -25,7 +25,7 @@
         gtag('config', 'UA-83619616-1');
     </script>
 </head>
-<body onload="window.addEventListener('resize', setPanels); setPanels();">
+<body>
 <header id="menu">
     <div class="return-home">
         <a href="../../index.html"><i class="fas fa-angle-left" aria-hidden="true"></i>Home</a>
@@ -35,13 +35,16 @@
     <section class="content">
         <article class="half-left">
             <div class="app-icon">
-                <img class="img-fluid" src="../img/fortniteWiki/marketingMask/appicon2.png" id="fortniteAvatar">
+                <picture>
+                    <source media="(max-width: 510px)" srcset="../img/fortniteWiki/marketingMask/appicon.png"/>
+                    <img class="img-fluid" src="../img/fortniteWiki/marketingMask/appicon2.png" id="fortniteAvatar" />
+                </picture>
             </div>
             <div class="group title-text">
                 <h1>A clean view of Data.</h1>
                 <h2>Have direct informations of stats.</h2>
                 <h5>Discover a nice looking wiki of Fortnite BattleRoyale.</h5>
-                <a href="#" class="apple-store-badge">Comming soon.</a>
+                <a href="#" class="apple-store-badge soon">Comming soon on the App Store</a>
                 <!--<a href="#" class="apple-store-badge"><img src="../img/fortniteWiki/app-store-badge.png" class="apple-store-badge"></a>-->
             </div>
         </article>
@@ -68,23 +71,5 @@
         </article>
     </section>
 </main>
-<script defer>
-    function setPanels()
-    {
-        var windowWidth = window.innerWidth;
-        if(windowWidth < 510)
-        {
-            document.getElementById('fortniteAvatar').src = '../img/fortniteWiki/appicon.png';
-            document.getElementById('fortniteAvatar').style.borderRadius = '25%';
-            document.getElementById('fortniteAvatar').style.width = '50%';
-        }
-        else if(windowWidth > 510)
-        {
-            document.getElementById('fortniteAvatar').src = '../img/fortniteWiki/marketingMask/appicon2.png';
-            document.getElementById('fortniteAvatar').style.borderRadius = '0';
-            document.getElementById('fortniteAvatar').style.width = '100%';
-        }
-    }
-</script>
 </body>
 </html>

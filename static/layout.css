@@ -96,6 +96,12 @@ h2,h3,h4,h5,h6 {
     margin-top: 2em;
     display: inline-block;
 }
+.soon:hover, .soon:visited, .soon:active, .soon:link {
+    padding-top: 1em;
+    text-decoration: none;
+    color: #000000;
+    pointer-events: none;
+}
 .apple-store-badge > img {
     background: url(https://linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;
     width: 65%;
@@ -190,5 +196,11 @@ section {
     }
     .app-icon {
         padding-bottom: 0;
+    }
+}
+@media only screen and (max-width: 509px) {
+    .app-icon {
+        width: 50%;
+        margin: auto;
     }
 }
