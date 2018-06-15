@@ -55,14 +55,6 @@ body {
     background: black;
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#bad133), to(#fff));
 }
-.fortnite_sexy_line {
-    display: block;
-    border: none;
-    color: white;
-    height: 1px;
-    background: black;
-    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#8c1bd1), to(#fff));
-}
 #avatarjpg {
     display: inline-block;
     width: 144px;
@@ -70,22 +62,6 @@ body {
     right: 10px;
     position: relative;
     border-radius: 50%;
-}
-#app-storeBadge {
-    width: 200px;
-}
-.app-store {
-    text-align: center;
-    margin-top: 21px;
-}
-.lookUp {
-    height: auto;
-    width: auto;
-    margin-top: 80px;
-}
-.lookImage {
-    height: 420px;
-    width: 672px;
 }
 a {
     text-decoration: none;
@@ -147,7 +123,7 @@ footer, i {
     padding-left: 40px;
 }
 #menu{
-    width: 500%;
+    width: 100%;
     background: #000000;
     height: 50px;
     line-height: 171px; /* Gère la longeur verticale du drop */
