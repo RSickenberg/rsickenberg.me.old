@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "me.romainsickenberg.fortnite-wiki",
+        "paths": ["*"]
+      }
+    ]
+  }
