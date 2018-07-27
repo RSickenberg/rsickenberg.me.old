@@ -1,4 +1,5 @@
 User-Agent: *
+Allow: /static/pages/fort-to-nite.html
 Disallow: /pages/
 Disallow: /static/
 Disallow: /secret/
