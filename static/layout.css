@@ -1,13 +1,12 @@
 /*Made by Romain Sickenberg*/
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,main {
-    display: block
+    display: block;
 }
 body {
-    line-height: 2
+    line-height: 2;
 }
 ol,ul,li {
-    list-style: none;
-    list-style-type: none;
+    list-style: none none;
     margin: 0;
     padding: 0
 }
@@ -35,10 +34,10 @@ a {
     -webkit-hyphens: auto
 }
 a:focus {
-    outline: thin dotted
+    outline: thin dotted;
 }
 a:active,a:hover {
-    outline: 0
+    outline: 0;
 }
 h2,h3,h4,h5,h6 {
     text-rendering: auto;
@@ -83,7 +82,7 @@ h2,h3,h4,h5,h6 {
     text-align: left;
 }
 .content .half-right {
-    width: 46%;
+    width: 50%;
     float: right;
 }
 .app-icon {
@@ -131,7 +130,7 @@ section {
 .panel {
     margin-top: 2em;
     background-color: #f7f7f7;
-    width: 100vw;
+    width: 100%;
     height: auto;
     max-width: none;
 }
