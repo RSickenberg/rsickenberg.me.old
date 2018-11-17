@@ -1,5 +1,4 @@
 User-Agent: *
-Allow: /static/pages/fort-to-nite.html
 Disallow: /static/img/
 Disallow: /static/fonts/
 Disallow: /static/pages/contact.html
