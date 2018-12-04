@@ -82,7 +82,7 @@ h2,h3,h4,h5,h6 {
     text-align: left;
 }
 .content .half-right {
-    width: 50%;
+    width: 40%;
     float: right;
 }
 .app-icon {
@@ -187,6 +187,7 @@ section {
         width: 100% !important;
         float: none !important;
         text-align: center;
+        margin-top: 50px;
     }
     .half-left {
         width: 100% !important;
