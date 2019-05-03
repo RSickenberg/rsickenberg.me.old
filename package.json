@@ -19,9 +19,9 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "bulma-carousel": "^3.0.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.1",
     "jquery-parallax.js": "^1.5.0",
     "jquery.cookie": "^1.4.1",
-    "popper.js": "^1.14.7"
+    "popper.js": "^1.15.0"
   }
 }
