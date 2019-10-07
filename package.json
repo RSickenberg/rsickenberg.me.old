@@ -22,6 +22,7 @@
     "jquery": "^3.4.1",
     "jquery-parallax.js": "^1.5.0",
     "jquery.cookie": "^1.4.1",
-    "popper.js": "^1.15.0"
+    "popper.js": "^1.15.0",
+    "simple-parallax-js": "^5.1.0"
   }
 }
