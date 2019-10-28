@@ -1,0 +1,14 @@
+.uk-progress {
+  background-color: #ffffff !important;
+  -webkit-appearance: progress-bar;
+  -moz-appearance: progressbar;
+  border: 0.5px solid #f3f3f3 !important;
+}
+
+.uk-progress::-webkit-progress-value {
+  background-image: $progress-bar-background;
+}
+
+.uk-progress::-moz-progress-bar {
+  background-image: $progress-bar-background;
+}
