@@ -1,0 +1,5 @@
+.uk-card-body-blur {
+  @extend .uk-card-body;
+  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
+}

@@ -1,8 +1,0 @@
-User-Agent: *
-Disallow: /static/img/
-Disallow: /static/fonts/
-Disallow: /static/pages/contact.html
-Disallow: /static/pages/idea.html
-Disallow: /static/pages/privacy.html
-Disallow: /static/pages/project.html
-Disallow: /secret/

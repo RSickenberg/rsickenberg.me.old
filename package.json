@@ -1,28 +1,41 @@
 {
-  "name": "rsickenberg.me",
-  "version": "2.0.0",
-  "description": "A website for me and my projects",
-  "main": "index.html",
+  "name": "rsickenbergv2.me",
+  "version": "1.0.0",
+  "description": "Reboot of my portfolio",
+  "main": "index.js",
   "scripts": {
-    "build-css": "webpack --config webpack.prod.js --progress"
+    "start": "NODE_ENV=development webpack-dev-server --hot",
+    "build": "NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RSickenberg/Sickenberg.me.git"
   },
-  "author": "Romain Sickenberg",
-  "license": "ISC",
+  "author": "Romain Sickenberg <@haux49>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/RSickenberg/Sickenberg.me/issues"
   },
   "homepage": "https://github.com/RSickenberg/Sickenberg.me#readme",
   "dependencies": {
-    "bootstrap": "^4.3.1",
     "bulma-carousel": "^3.0.0",
     "jquery": "^3.4.1",
-    "jquery-parallax.js": "^1.5.0",
-    "jquery.cookie": "^1.4.1",
-    "popper.js": "^1.15.0",
-    "simple-parallax-js": "^5.1.0"
+    "uikit": "^3.2.2",
+    "webpack": "^4.41.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "autoprefixer": "^9.7.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "cssnano": "^4.1.10",
+    "file-loader": "^4.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "svg-sprite-loader": "^4.1.6",
+    "webpack-cli": "^3.3.9"
   }
 }
