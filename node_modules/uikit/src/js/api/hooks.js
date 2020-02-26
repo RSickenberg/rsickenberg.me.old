@@ -24,6 +24,7 @@ export default function (UIkit) {
         this._callHook('beforeConnect');
         this._connected = true;
 
+        this._initWatches();
         this._initEvents();
         this._initObserver();
 

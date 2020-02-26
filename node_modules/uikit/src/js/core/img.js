@@ -51,7 +51,7 @@ export default {
         target: {
 
             get({target}) {
-                return [this.$el].concat(queryAll(target, this.$el));
+                return [this.$el, ...queryAll(target, this.$el)];
             },
 
             watch() {
@@ -145,7 +145,7 @@ export default {
         },
 
         observe() {
-            if (!this._data.image && this._connected) {
+            if (this._connected && !this._data.image) {
                 this.target.forEach(el => this.observer.observe(el));
             }
         }
