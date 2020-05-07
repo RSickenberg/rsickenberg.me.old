@@ -19,23 +19,23 @@
   "homepage": "https://github.com/RSickenberg/Sickenberg.me#readme",
   "dependencies": {
     "bulma-carousel": "^3.0.0",
-    "jquery": "^3.5.0",
-    "uikit": "^3.4.1",
-    "webpack": "^4.42.1"
+    "jquery": "^3.5.1",
+    "uikit": "^3.4.3",
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
+    "@babel/core": "^7.9.6",
     "autoprefixer": "^9.7.6",
     "babel-loader": "^8.1.0",
-    "css-loader": "^3.5.2",
+    "css-loader": "^3.5.3",
     "cssnano": "^4.1.10",
     "file-loader": "^4.3.0",
     "mini-css-extract-plugin": "^0.8.2",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.2",
-    "style-loader": "^1.1.4",
-    "svg-sprite-loader": "^4.2.5",
+    "style-loader": "^1.2.1",
+    "svg-sprite-loader": "^4.3.0",
     "webpack-cli": "^3.3.11"
   }
 }
