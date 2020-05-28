@@ -77,7 +77,7 @@ export default {
 
             write({height, padding}) {
 
-                css(this.$el, 'paddingBottom', padding);
+                css(this.$el, 'paddingBottom', padding || '');
                 height !== false && css(this.$el, 'height', height);
 
             },
@@ -122,24 +122,18 @@ export default {
 
 function getTranslates(rows, columns) {
 
-    const translates = [];
     const rowHeights = rows.map(row =>
         Math.max(...row.map(el => el.offsetHeight))
     );
 
-    columns.forEach((column, i) =>
-        column.forEach((el, j) => {
-            if (j === 0) {
-                translates[i] = [0];
-            } else {
-                translates[i][j] = rowHeights[j - 1]
-                    - columns[i][j - 1].offsetHeight
-                    + translates[i].reduce((sum, op) => sum + op, 0);
-            }
-        })
-    );
-
-    return translates;
+    return columns.map(elements => {
+        let prev = 0;
+        return elements.map((element, row) =>
+            prev += row
+                ? rowHeights[row - 1] - elements[row - 1].offsetHeight
+                : 0
+        );
+    });
 }
 
 function getMarginTop(nodes, cls) {
