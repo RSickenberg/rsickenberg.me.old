@@ -69,7 +69,7 @@
                     <div>
                         <div class="uk-child-width-auto uk-grid-small uk-flex-center uk-flex-left@m" uk-grid>
                             <div class="uk-first-column">
-                                <h2 class="uk-heading-xlarge uk-text-background-highlight">7</h2>
+                                <h2 class="uk-heading-xlarge uk-text-background-highlight">8</h2>
                             </div>
                             <div class="uk-margin">
                                 <h4 class="uk-h4 uk-margin-remove">Languages</h4>
@@ -233,8 +233,8 @@
                                 <h2 class="uk-heading-xlarge uk-text-background-highlight">1</h2>
                             </div>
                             <div class="uk-margin">
-                                <h3 class="uk-h3 uk-margin-remove">Job</h3>
-                                <h4 class="uk-h4 uk-margin-remove">Experience</h4>
+                                <h4 class="uk-h4 uk-margin-remove">Job</h3>
+                                <h5 class="uk-h5 uk-margin-remove uk-text-muted">Experience</h4>
                             </div>
                         </div>
                     </div>
@@ -271,6 +271,41 @@
                                     </ul>
                                 </li>
                             </ul>
+                            <hr>
+                            <div class="uk-container uk-width-1-2">
+                                <button class="uk-button uk-button-primary uk-align-center" uk-toggle="target: #form-modal" type="button">Add a new job</button>
+                            </div>
+
+                            <!-- Contact Modal -->
+                            <div id="form-modal" uk-modal>
+                                <div class="uk-modal-dialog uk-modal-body">
+                                    <h2 class="uk-modal-title">Contact me</h2>
+                                    <p>Thanks for reaching me. Please fill the form which will then open your mail app.</p>
+                                    <hr>
+                                    <div class="uk-width-1-1">
+                                        <form class="uk-grid-small uk-form-stacked" uk-grid action="https://formspree.io/xzbjekye" method="POST">
+
+                                            <div class="uk-width-1-1">
+                                                <label class="uk-form-label" for="email">Your email</label>
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                                                    <input class="uk-input" type="text" id="email" name="_replyto" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="uk-width-1-1">
+                                                <label class="uk-form-label" for="message">Message</label>
+                                                <textarea class="uk-textarea" id="message" rows="5" name="message" required></textarea>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p class="uk-text-right">
+                                            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                                            <input class="uk-button uk-button-primary" type="submit"></button>
+                                        </p>
+                                    </form>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -291,26 +326,26 @@
                                 <h3 class="uk-card-title uk-heading-divider">Purpose</h3>
                                 <p>TeslaCompanion brings the Tesla experience to a new level on the Apple Watch.</p>
                                 <p>Server-less application, all logic made on client.</p>
-                                <p>Still work in progress, you can suggest and influence at anytime the development.</p>
+                                <p>Still work in progress, suggest and influence at anytime the development.</p>
                             </div>
                         </div>
                         <div>
                             <div class="uk-card uk-card-body">
                                 <h3 class="uk-card-title uk-heading-divider">Technology</h3>
-                                <p>Build from scratch with strong Swift, supporting iOS 11 or higher and watchOS 3 or higher.</p>
+                                <p>Build from scratch with Swift 5, supporting iOS 11 or higher and watchOS 3 or higher.</p>
                                 <p>Supporting native features from iOS and watchOS like: Siri, Complications, Shortcuts.</p>
                             </div>
                         </div>
                         <div>
                             <div class="uk-card uk-card-body uk-card-body">
                                 <h3 class="uk-card-title uk-heading-divider">Community</h3>
-                                <p>Big community and ~ 100 testers with slow and fast release rings.</p>
+                                <p>Big community and ~ 120 testers with slow and fast release rings.</p>
                                 <p>Elastic development provides flexible feature requests from the community.</p>
                             </div>
                         </div>
                     </div>
                     <a href="https://testflight.apple.com/join/L7BudGZn" class="uk-button uk-button-primary uk-align-center uk-text-center uk-margin-medium-top uk-width-1-4@m" uk-scrollspy-class>Join the Beta</a>
-                    <div uk-dropdown="pos: bottom-center; animation: uk-animation-slide-top-small; duration: 500">Production ready in ~ Q3 2020.</div>
+                    <div uk-dropdown="pos: bottom-center; animation: uk-animation-slide-top-small; duration: 500">Production ready in ~ Q3 2020</div>
                 </div>
             </div>
         </div>
@@ -334,7 +369,7 @@
                         <div>
                             <div class="uk-card uk-card-body">
                                 <h3 class="uk-card-title uk-heading-divider">Technology</h3>
-                                <p>Written in Swift 5 and compatible for iOS 10 or supperior.</p>
+                                <p>Written in Swift 5 and compatible for iOS 10 or superior.</p>
                                 <p>Backend in Django as a tool to generate JSON required for the app.
                                     The JSON is hosted on Github Pages.
                                 </p>
@@ -343,8 +378,8 @@
                         <div class="uk-first-column">
                             <div class="uk-card uk-card-body">
                                 <h3 class="uk-card-title uk-heading-divider">Success story</h3>
-                                <p>#19 in category "References" in the AppStore.</p>
-                                <p>About 68k downloads and 4.6 over 5.0 stars world wide with 332 reviews!</p>
+                                <p>#19 in category "References" in the App Store for 2 weeks.</p>
+                                <p>About 68k downloads and 4.7 over 5.0 stars world wide with 332 reviews!</p>
                             </div>
                         </div>
                     </div>
@@ -383,6 +418,9 @@
                                 </div>
                                 <div>
                                     <a class="uk-icon-button" href="mailto:r.sickenberg@gmail.com" uk-icon="icon: mail; ratio: 1.2"></a>
+                                </div>
+                                <div>
+                                    <a class="uk-icon-button" href="assets/pdf/onepage.pdf" uk-icon="icon: file-pdf; ratio: 1.2"></a>
                                 </div>
                             </div>
                         </div>
