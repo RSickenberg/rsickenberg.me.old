@@ -32,7 +32,7 @@ export default {
                 const isCssProp = isColor || prop === 'opacity';
 
                 let pos, bgPos, diff;
-                let steps = properties[prop].slice(0);
+                let steps = properties[prop].slice();
 
                 if (isCssProp) {
                     css($el, prop, '');
@@ -129,9 +129,7 @@ export default {
 
         read(data) {
 
-            data.active = this.matchMedia;
-
-            if (!data.active) {
+            if (!this.matchMedia) {
                 return;
             }
 
@@ -190,9 +188,9 @@ export default {
             data.dim = dim;
         },
 
-        write({dim, active}) {
+        write({dim}) {
 
-            if (!active) {
+            if (!this.matchMedia) {
                 css(this.$el, {backgroundSize: '', backgroundRepeat: ''});
                 return;
             }

@@ -1,8 +1,8 @@
 import Class from '../mixin/class';
 import Slider, {speedUp} from '../mixin/slider';
 import SliderReactive from '../mixin/slider-reactive';
-import Transitioner, {getElLeft, getMax, getMaxWidth, getWidth} from './internal/slider-transitioner';
-import {$, $$, addClass, css, data, includes, isEmpty, isNumeric, last, offset, toFloat, toggleClass} from 'uikit-util';
+import Transitioner, {getMax, getWidth} from './internal/slider-transitioner';
+import {$, addClass, children, css, data, dimensions, findIndex, includes, isEmpty, last, sortBy, toFloat, toggleClass, toNumber} from 'uikit-util';
 
 export default {
 
@@ -30,7 +30,7 @@ export default {
         },
 
         finite({finite}) {
-            return finite || Math.ceil(getWidth(this.list)) < offset(this.list).width + getMaxWidth(this.list) + this.center;
+            return finite || Math.ceil(getWidth(this.list)) < dimensions(this.list).width + getMaxElWidth(this.list) + this.center;
         },
 
         maxIndex() {
@@ -43,31 +43,36 @@ export default {
                 return last(this.sets);
             }
 
-            css(this.slides, 'order', '');
-
+            let lft = 0;
             const max = getMax(this.list);
-            let i = this.length;
+            const index = findIndex(this.slides, el => {
 
-            while (i--) {
-                if (getElLeft(this.list.children[i], this.list) < max) {
-                    return Math.min(i + 1, this.length - 1);
+                if (lft >= max) {
+                    return true;
                 }
-            }
 
-            return 0;
+                lft += dimensions(el).width;
+
+            });
+
+            return ~index ? index : this.length - 1;
         },
 
         sets({sets}) {
 
-            const width = offset(this.list).width / (this.center ? 2 : 1);
+            if (!sets) {
+                return;
+            }
+
+            const width = dimensions(this.list).width / (this.center ? 2 : 1);
 
             let left = 0;
             let leftCenter = width;
             let slideLeft = 0;
 
-            sets = sets && this.slides.reduce((sets, slide, i) => {
+            sets = sortBy(this.slides, 'offsetLeft').reduce((sets, slide, i) => {
 
-                const {width: slideWidth} = offset(slide);
+                const slideWidth = dimensions(slide).width;
                 const slideRight = slideLeft + slideWidth;
 
                 if (slideRight > left) {
@@ -79,7 +84,7 @@ export default {
                     if (!includes(sets, i)) {
 
                         const cmp = this.slides[i + 1];
-                        if (this.center && cmp && slideWidth < leftCenter - offset(cmp).width / 2) {
+                        if (this.center && cmp && slideWidth < leftCenter - dimensions(cmp).width / 2) {
                             leftCenter -= slideWidth;
                         } else {
                             leftCenter = width;
@@ -116,10 +121,11 @@ export default {
     update: {
 
         write() {
-
-            $$(`[${this.attrItem}],[data-${this.attrItem}]`, this.$el).forEach(el => {
-                const index = data(el, this.attrItem);
-                this.maxIndex && toggleClass(el, 'uk-hidden', isNumeric(index) && (this.sets && !includes(this.sets, toFloat(index)) || index > this.maxIndex));
+            this.navItems.forEach(el => {
+                const index = toNumber(data(el, this.attrItem));
+                if (index !== false) {
+                    el.hidden = !this.maxIndex || index > this.maxIndex || this.sets && !includes(this.sets, index);
+                }
             });
 
             if (this.length && !this.dragging && !this.stack.length) {
@@ -129,8 +135,10 @@ export default {
 
             const actives = this._getTransitioner(this.index).getActives();
             this.slides.forEach(slide => toggleClass(slide, this.clsActive, includes(actives, slide)));
-            (!this.sets || includes(this.sets, toFloat(this.index))) && this.slides.forEach(slide => toggleClass(slide, this.clsActivated, includes(actives, slide)));
 
+            if (this.clsActivated && (!this.sets || includes(this.sets, toFloat(this.index)))) {
+                this.slides.forEach(slide => toggleClass(slide, this.clsActivated || '', includes(actives, slide)));
+            }
         },
 
         events: ['resize']
@@ -161,12 +169,8 @@ export default {
                 return;
             }
 
-            this.duration = speedUp(this.avgWidth / this.velocity)
-                * (offset(
-                    this.dir < 0 || !this.slides[this.prevIndex]
-                        ? this.slides[this.index]
-                        : this.slides[this.prevIndex]
-                ).width / this.avgWidth);
+            const index = this.dir < 0 || !this.slides[this.prevIndex] ? this.index : this.prevIndex;
+            this.duration = speedUp(this.avgWidth / this.velocity) * (dimensions(this.slides[index]).width / this.avgWidth);
 
             this.reorder();
 
@@ -203,7 +207,7 @@ export default {
             }
 
             const next = this.slides[index];
-            let width = offset(this.list).width / 2 - offset(next).width / 2;
+            let width = dimensions(this.list).width / 2 - dimensions(next).width / 2;
             let j = 0;
 
             while (width > 0) {
@@ -211,7 +215,7 @@ export default {
                 const slide = this.slides[slideIndex];
 
                 css(slide, 'order', slideIndex > index ? -2 : -1);
-                width -= offset(slide).width;
+                width -= dimensions(slide).width;
             }
 
         },
@@ -243,3 +247,7 @@ export default {
     }
 
 };
+
+function getMaxElWidth(list) {
+    return Math.max(0, ...children(list).map(el => dimensions(el).width));
+}

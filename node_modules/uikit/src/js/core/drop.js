@@ -1,6 +1,6 @@
 import Position from '../mixin/position';
 import Togglable from '../mixin/togglable';
-import {addClass, Animation, apply, attr, css, inBrowser, includes, isTouch, MouseTracker, offset, on, once, pointerCancel, pointerDown, pointerEnter, pointerLeave, pointerUp, query, removeClass, toggleClass, trigger, within} from 'uikit-util';
+import {addClass, apply, css, hasClass, includes, isTouch, MouseTracker, offset, on, once, pointerCancel, pointerDown, pointerEnter, pointerLeave, pointerUp, query, removeClass, toggleClass, within} from 'uikit-util';
 
 let active;
 
@@ -23,7 +23,7 @@ export default {
     data: {
         mode: ['click', 'hover'],
         toggle: '- *',
-        boundary: inBrowser && window,
+        boundary: true,
         boundaryAlign: false,
         delayShow: 0,
         delayHide: 800,
@@ -35,7 +35,7 @@ export default {
     computed: {
 
         boundary({boundary}, $el) {
-            return query(boundary, $el);
+            return boundary === true ? window : query(boundary, $el);
         },
 
         clsDrop({clsDrop}) {
@@ -61,8 +61,6 @@ export default {
             target: this.$el,
             mode: this.mode
         });
-
-        !this.toggle && trigger(this.$el, 'updatearia');
 
     },
 
@@ -198,9 +196,9 @@ export default {
 
             self: true,
 
-            handler() {
+            handler(e, toggled) {
 
-                if (!this.isToggled()) {
+                if (!toggled) {
                     return;
                 }
 
@@ -221,7 +219,6 @@ export default {
                 active = this;
 
                 this.tracker.init();
-                trigger(this.$el, 'updatearia');
 
                 once(this.$el, 'hide', on(document, pointerDown, ({target}) =>
                     !within(target, this.$el) && once(document, `${pointerUp} ${pointerCancel} scroll`, ({defaultPrevented, type, target: newTarget}) => {
@@ -233,7 +230,6 @@ export default {
 
                 once(this.$el, 'hide', on(document, 'keydown', e => {
                     if (e.keyCode === 27) {
-                        e.preventDefault();
                         this.hide(false);
                     }
                 }), {self: true});
@@ -266,29 +262,9 @@ export default {
                 }
 
                 active = this.isActive() ? null : active;
-                trigger(this.$el, 'updatearia');
                 this.tracker.cancel();
             }
 
-        },
-
-        {
-
-            name: 'updatearia',
-
-            self: true,
-
-            handler(e, toggle) {
-
-                e.preventDefault();
-
-                this.updateAria(this.$el);
-
-                if (toggle || this.toggle) {
-                    attr((toggle || this.toggle).$el, 'aria-expanded', this.isToggled());
-                    toggleClass(this.toggle.$el, this.cls, this.isToggled());
-                }
-            }
         }
 
     ],
@@ -297,7 +273,7 @@ export default {
 
         write() {
 
-            if (this.isToggled() && !Animation.inProgress(this.$el)) {
+            if (this.isToggled() && !hasClass(this.$el, this.clsEnter)) {
                 this.position();
             }
 
@@ -382,7 +358,7 @@ export default {
             if (this.align === 'justify') {
                 const prop = this.getAxis() === 'y' ? 'width' : 'height';
                 css(this.$el, prop, alignTo[prop]);
-            } else if (this.$el.offsetWidth > Math.max(boundary.right - alignTo.left, alignTo.right - boundary.left)) {
+            } else if (this.boundary && this.$el.offsetWidth > Math.max(boundary.right - alignTo.left, alignTo.right - boundary.left)) {
                 addClass(this.$el, `${this.clsDrop}-stack`);
             }
 

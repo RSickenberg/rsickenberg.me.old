@@ -1,6 +1,6 @@
 import Margin from './margin';
 import Class from '../mixin/class';
-import {addClass, children, css, height as getHeight, hasClass, scrolledOver, sortBy, toFloat, toggleClass, Transition} from 'uikit-util';
+import {addClass, children, css, height as getHeight, hasClass, scrolledOver, sortBy, toFloat, toggleClass} from 'uikit-util';
 
 export default {
 
@@ -40,17 +40,19 @@ export default {
 
         {
 
-            read({columns, rows}) {
+            read(data) {
 
-                const nodes = children(this.$el);
+                let {columns, rows} = data;
 
-                if (!nodes.length || !this.masonry && !this.parallax) {
+                // Filter component makes elements positioned absolute
+                if (!columns.length || !this.masonry && !this.parallax || positionedAbsolute(this.$el)) {
+                    data.translates = false;
                     return false;
                 }
 
-                const transitionInProgress = nodes.some(Transition.inProgress);
                 let translates = false;
 
+                const nodes = children(this.$el);
                 const columnHeights = getColumnHeights(columns);
                 const margin = getMarginTop(nodes, this.margin) * (rows.length - 1);
                 const elHeight = Math.max(...columnHeights) + margin;
@@ -67,7 +69,7 @@ export default {
                         , 0);
                 }
 
-                return {padding, columns, translates, height: transitionInProgress ? false : this.masonry ? elHeight : ''};
+                return {padding, columns, translates, height: translates ? elHeight : ''};
 
             },
 
@@ -85,6 +87,11 @@ export default {
         {
 
             read({height}) {
+
+                if (positionedAbsolute(this.$el)) {
+                    return false;
+                }
+
                 return {
                     scrolled: this.parallax
                         ? scrolledOver(this.$el, height ? height - getHeight(this.$el) : 0) * Math.abs(this.parallax)
@@ -115,6 +122,10 @@ export default {
     ]
 
 };
+
+function positionedAbsolute(el) {
+    return children(el).some(el => css(el, 'position') === 'absolute');
+}
 
 function getTranslates(rows, columns) {
 

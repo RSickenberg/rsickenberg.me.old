@@ -1,5 +1,5 @@
 import Parallax from '../mixin/parallax';
-import {clamp, css, query, scrolledOver} from 'uikit-util';
+import {clamp, css, parent, query, scrolledOver} from 'uikit-util';
 
 export default {
 
@@ -27,13 +27,13 @@ export default {
 
     update: {
 
-        read({percent, active}, type) {
+        read({percent}, types) {
 
-            if (type !== 'scroll') {
+            if (!types.has('scroll')) {
                 percent = false;
             }
 
-            if (!active) {
+            if (!this.matchMedia) {
                 return;
             }
 
@@ -46,9 +46,9 @@ export default {
             };
         },
 
-        write({style, active}) {
+        write({style}) {
 
-            if (!active) {
+            if (!this.matchMedia) {
                 this.reset();
                 return;
             }
@@ -71,6 +71,6 @@ function getOffsetElement(el) {
     return el
         ? 'offsetTop' in el
             ? el
-            : getOffsetElement(el.parentNode)
+            : getOffsetElement(parent(el))
         : document.body;
 }

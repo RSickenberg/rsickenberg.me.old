@@ -1,4 +1,4 @@
-import {assign, fastdom, hasOwn, includes, isEqual, isPlainObject} from 'uikit-util';
+import {assign, fastdom, hasOwn, isEqual, isPlainObject} from 'uikit-util';
 
 export default function (UIkit) {
 
@@ -19,7 +19,6 @@ export default function (UIkit) {
 
         this._data = {};
         this._computeds = {};
-        this._frames = {reads: {}, writes: {}};
 
         this._initProps();
 
@@ -27,7 +26,7 @@ export default function (UIkit) {
         this._connected = true;
 
         this._initEvents();
-        this._initObserver();
+        this._initObservers();
 
         this._callHook('connected');
         this._callUpdate();
@@ -40,76 +39,49 @@ export default function (UIkit) {
         }
 
         this._callHook('beforeDisconnect');
-
-        if (this._observer) {
-            this._observer.disconnect();
-            this._observer = null;
-        }
-
+        this._disconnectObservers();
         this._unbindEvents();
         this._callHook('disconnected');
 
         this._connected = false;
+        delete this._watch;
 
     };
 
     UIkit.prototype._callUpdate = function (e = 'update') {
 
-        const type = e.type || e;
-
-        if (includes(['update', 'resize'], type)) {
-            this._callWatches();
-        }
-
-        const updates = this.$options.update;
-        const {reads, writes} = this._frames;
-
-        if (!updates) {
+        if (!this._connected) {
             return;
         }
 
-        updates.forEach(({read, write, events}, i) => {
+        if (e === 'update' || e === 'resize') {
+            this._callWatches();
+        }
 
-            if (type !== 'update' && !includes(events, type)) {
-                return;
-            }
+        if (!this.$options.update) {
+            return;
+        }
 
-            if (read && !includes(fastdom.reads, reads[i])) {
-                reads[i] = fastdom.read(() => {
+        if (!this._updates) {
+            this._updates = new Set();
+            fastdom.read(() => {
+                runUpdates.call(this, this._updates);
+                delete this._updates;
+            });
+        }
 
-                    const result = this._connected && read.call(this, this._data, type);
-
-                    if (result === false && write) {
-                        fastdom.clear(writes[i]);
-                    } else if (isPlainObject(result)) {
-                        assign(this._data, result);
-                    }
-                });
-            }
-
-            if (write && !includes(fastdom.writes, writes[i])) {
-                writes[i] = fastdom.write(() => this._connected && write.call(this, this._data, type));
-            }
-
-        });
-
+        this._updates.add(e.type || e);
     };
 
     UIkit.prototype._callWatches = function () {
 
-        const {_frames} = this;
-
-        if (_frames._watch) {
+        if (this._watch) {
             return;
         }
 
-        const initital = !hasOwn(_frames, '_watch');
+        const initital = !hasOwn(this, '_watch');
 
-        _frames._watch = fastdom.read(() => {
-
-            if (!this._connected) {
-                return;
-            }
+        this._watch = fastdom.read(() => {
 
             const {$options: {computed}, _computeds} = this;
 
@@ -130,10 +102,37 @@ export default function (UIkit) {
 
             }
 
-            _frames._watch = null;
+            this._watch = null;
 
         });
 
     };
 
+    function runUpdates(types) {
+
+        const updates = this.$options.update;
+
+        for (let i = 0; i < updates.length; i++) {
+            const {read, write, events} = updates[i];
+
+            if (!types.has('update') && (!events || !events.some(type => types.has(type)))) {
+                continue;
+            }
+
+            let result;
+            if (read) {
+
+                result = read.call(this, this._data, types);
+
+                if (result && isPlainObject(result)) {
+                    assign(this._data, result);
+                }
+            }
+
+            if (write && result !== false) {
+                fastdom.write(() => write.call(this, this._data, types));
+            }
+
+        }
+    }
 }

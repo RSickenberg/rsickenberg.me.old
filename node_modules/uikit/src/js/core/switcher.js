@@ -1,5 +1,5 @@
 import Togglable from '../mixin/togglable';
-import {$$, attr, children, css, data, endsWith, findIndex, getIndex, hasClass, includes, matches, queryAll, toggleClass, toNodes, within} from 'uikit-util';
+import {$$, attr, children, css, data, endsWith, findIndex, getIndex, hasClass, matches, queryAll, toggleClass, toNodes, within} from 'uikit-util';
 
 export default {
 
@@ -20,7 +20,6 @@ export default {
         active: 0,
         swiping: true,
         cls: 'uk-active',
-        clsContainer: 'uk-switcher',
         attrItem: 'uk-switcher-item'
     },
 
@@ -34,11 +33,16 @@ export default {
 
             watch(connects) {
 
-                connects.forEach(list => this.updateAria(list.children));
-
                 if (this.swiping) {
                     css(connects, 'touch-action', 'pan-y pinch-zoom');
                 }
+
+                const index = this.index();
+                this.connects.forEach(el =>
+                    children(el).forEach((child, i) =>
+                        toggleClass(child, this.cls, i === index)
+                    )
+                );
 
             },
 
@@ -54,7 +58,7 @@ export default {
 
             watch(toggles) {
                 const active = this.index();
-                this.show(~active && active || toggles[this.active] || toggles[0]);
+                this.show(~active ? active : toggles[this.active] || toggles[0]);
             },
 
             immediate: true
@@ -78,9 +82,6 @@ export default {
             },
 
             handler(e) {
-                if (!includes(this.toggles, e.current)) {
-                    return;
-                }
                 e.preventDefault();
                 this.show(e.current);
             }
@@ -131,7 +132,10 @@ export default {
         show(item) {
 
             const prev = this.index();
-            const next = getIndex(item, this.toggles, prev);
+            const next = getIndex(
+                this.children[getIndex(item, this.toggles, prev)],
+                children(this.$el)
+            );
 
             if (prev === next) {
                 return;
@@ -143,8 +147,8 @@ export default {
             });
 
             this.connects.forEach(({children}) =>
-                this.toggleElement(toNodes(children).filter((child, i) =>
-                    i !== next && this.isToggled(child)
+                this.toggleElement(toNodes(children).filter(child =>
+                    hasClass(child, this.cls)
                 ), false, prev >= 0).then(() =>
                     this.toggleElement(children[next], true, prev >= 0)
                 )
