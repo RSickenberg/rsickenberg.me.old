@@ -20,7 +20,7 @@
   "dependencies": {
     "bulma-carousel": "^3.0.0",
     "jquery": "^3.5.1",
-    "uikit": "^3.5.10"
+    "uikit": "^3.6.18"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
