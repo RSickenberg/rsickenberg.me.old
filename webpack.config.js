@@ -1,6 +1,8 @@
 const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -80,6 +82,16 @@ module.exports = {
             filename: '[name].css',
         }),
         new SpriteLoaderPlugin(),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+        }),
+        new CopyPlugin({
+            patterns: [
+                { from: 'node_modules/bulma-carousel/dist', to: 'bulma-carousel' },
+                { from : 'node_modules/uikit/dist/js', to: 'uikit/js'}
+            ],
+        }),
     ],
     devServer: {
         proxy: {
@@ -101,12 +113,11 @@ module.exports = {
     },
     optimization: {
         splitChunks: {
+            chunks: 'all',
             cacheGroups: {
-                styles: {
-                    name: 'styles',
-                    test: /\.css$/,
-                    chunks: 'all',
-                    enforce: true,
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
                 },
             },
         },

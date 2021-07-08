@@ -2,3 +2,8 @@
   @extend .uk-text-background;
   background-image: $text-background-color-highlight !important;
 }
+
+.uk-list-hyphen > ::before {
+  //@extend .uk-list-hyphen;
+  color: lighten($text-muted-color, 30%);
+}
