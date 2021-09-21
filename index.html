@@ -18,6 +18,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <script src="static/uikit/js/uikit.min.js"></script>
+    <script src="static/common.js"></script>
+    <script src="static/vendors.js"></script>
     <script async src="static/uikit/js/uikit-icons.min.js"></script>
 
     <link rel="stylesheet" href="static/common.css">
@@ -33,9 +35,6 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-83619616-1');
-    </script>
-    <script>
-        
     </script>
 </head>
 <body>
@@ -510,6 +509,7 @@
     </div>
     <script>
         function onFormJobSubmit(e) {
+            e.preventDefault();
             let isValid = true;
             const form = document.getElementById('form_job_offer');
             const fields = ['_replyto', 'message'];
@@ -522,8 +522,24 @@
             })
 
             if (isValid) {
-                form.submit();
+                capValidate(grecaptcha.getResponse())
             }
+        }
+
+        function capValidate(token) {
+            grecaptcha.ready(() => {
+                const recaptchaSecret = '6LdCWYAcAAAAACbTCfOOXyPlgIBYGD3ihVjIye2o';
+                const responseString = "https://www.google.com/recaptcha/api/siteverify?secret=" + recaptchaSecret + "&response=" + token;
+
+                $.ajax({
+                    url: responseString,
+                    type: 'POST',
+                    crossDomain: true,
+                    dataType: 'jsonp',
+                }).then((resp) => {
+                    console.log(resp);
+                });
+            })
         }
     </script>
 </body>
