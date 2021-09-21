@@ -26,13 +26,16 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet" type='text/css'>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83619616-1"></script>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LdCWYAcAAAAAMpLbUCErozbOZtmqEvz6zLg6xuI"></script>
+    <script async defer src="https://www.google.com/recaptcha/api.js"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
         gtag('config', 'UA-83619616-1');
+    </script>
+    <script>
+        
     </script>
 </head>
 <body>
@@ -348,7 +351,7 @@
                                     <p>I can't wait to meet you and share a coffee!</p>
                                     <hr>
                                     <div class="uk-width-1-1">
-                                        <form class="uk-grid-small uk-form-stacked" uk-grid action="https://formspree.io/xzbjekye" method="POST" id="form_job_offer">
+                                        <form id="form_job_offer" class="uk-grid-small uk-form-stacked" uk-grid action="https://formspree.io/xzbjekye" method="POST">
                                             <div class="uk-width-1-1">
                                                 <label class="uk-form-label" for="email">Your email</label>
                                                 <div class="uk-inline uk-width-1-1">
@@ -366,7 +369,7 @@
                                         <p uk-margin>
                                             <button class="uk-button uk-button-default uk-width-1-1 uk-modal-close" type="button">Cancel</button>
                                             <button class="uk-button uk-button-primary uk-width-1-1 g-recaptcha" data-sitekey="6LdCWYAcAAAAAMpLbUCErozbOZtmqEvz6zLg6xuI"
-                                             data-callback="onFormJobSubmit" data-action="submit">Submit</button>
+                                                data-size="invisible" data-callback="onFormJobSubmit" data-action="submit">Submit</button>
                                         </p>
                                     </form>
                                 </div>
@@ -507,7 +510,7 @@
     </div>
     <script>
         function onFormJobSubmit(e) {
-            document.getElementById('#form_job_offer').submit();
+            document.getElementById('form_job_offer').submit();
         }
     </script>
 </body>
