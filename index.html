@@ -26,6 +26,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet" type='text/css'>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83619616-1"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdCWYAcAAAAAMpLbUCErozbOZtmqEvz6zLg6xuI"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -236,7 +237,7 @@
                     <div class="uk-first-column">
                         <div class="uk-child-width-auto uk-grid-small uk-flex-center uk-flex-left@m" uk-grid>
                             <div class="uk-first-column">
-                                <h2 class="uk-heading-xlarge uk-text-background-highlight">2</h2>
+                                <h2 class="uk-heading-xlarge uk-text-background-highlight">3</h2>
                             </div>
                             <div class="uk-margin">
                                 <h4 class="uk-h4 uk-margin-remove">Work</h4>
@@ -246,7 +247,20 @@
                     </div>
                     <ul class="uk-list uk-list-divider uk-list-large">
                         <li>
-                            <h3 class="uk-h4 uk-text-muted uk-text-center uk-text-left@m">2021 - Today @ <a
+                            <h3 class="uk-h4 uk-text-muted uk-text-center uk-text-left@m">10.2021 - Today @ <a href="https://antistatique.net/">Antistatique</a></h3>
+                            <h4 class="uk-margin-remove-top ux-text-center uk-text-left@m">Backend Developer</h4>
+                            <ul class="uk-list uk-list-divider">
+                                <li>
+                                    <ul class="uk-list uk-list-divider uk-padding-remove uk-padding-small">
+                                        <li class="uk-text-center">
+                                            <span class="uk-text-muted">Will start soon ...</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3 class="uk-h4 uk-text-muted uk-text-center uk-text-left@m">02.2021 - 10.2021 @ <a
                                     href="https://ilemgroup.com">Ilem Group</a> x <a href="https://berdoz-vision.ch/">Berdoz Vision & Audition</a></h3>
                             <h4 class="uk-margin-remove-top uk-text-center uk-text-left@m">Junior Software
                                 Developer</h4>
@@ -264,7 +278,7 @@
                                         </li>
                                         <li>
                                             <span>Migrating a "custom made" framework into the cutting edge Laravel framework keeping job rules and complex interactions between them.
-                                                <span class="uk-text-muted">(planned)</span>
+                                                <span class="uk-text-muted">(dropped)</span>
                                             </span>
                                         </li>
                                         <li>
@@ -277,6 +291,9 @@
                                                                 <span>Set Codeception and complex tests suites with GitHub actions and self-hosted runner.</span></li>
                                                             <li>
                                                                 <span>Configuring the iPad's fleet.</span>
+                                                            </li>
+                                                            <li>
+                                                                <span>Migrated self-hosted repository into Github.</span>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -331,7 +348,7 @@
                                     <p>I can't wait to meet you and share a coffee!</p>
                                     <hr>
                                     <div class="uk-width-1-1">
-                                        <form class="uk-grid-small uk-form-stacked" uk-grid action="https://formspree.io/xzbjekye" method="POST">
+                                        <form class="uk-grid-small uk-form-stacked" uk-grid action="https://formspree.io/xzbjekye" method="POST" id="form_job_offer">
                                             <div class="uk-width-1-1">
                                                 <label class="uk-form-label" for="email">Your email</label>
                                                 <div class="uk-inline uk-width-1-1">
@@ -346,9 +363,10 @@
                                             </div>
                                         </div>
                                         <hr>
-                                        <p class="uk-text-right">
-                                            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                                            <input class="uk-button uk-button-primary" type="submit"></button>
+                                        <p uk-margin>
+                                            <button class="uk-button uk-button-default uk-width-1-1 uk-modal-close" type="button">Cancel</button>
+                                            <button class="uk-button uk-button-primary uk-width-1-1 g-recaptcha" data-sitekey="6LdCWYAcAAAAAMpLbUCErozbOZtmqEvz6zLg6xuI"
+                                             data-callback="onFormJobSubmit" data-action="submit">Submit</button>
                                         </p>
                                     </form>
                                 </div>
@@ -487,5 +505,15 @@
             </div>
         </div>
     </div>
+    <script>
+        function onFormJobSubmit(e) {
+            e.preventDefault();
+            grecaptcha.ready(function () {
+                grecaptcha.execute('6LdCWYAcAAAAAMpLbUCErozbOZtmqEvz6zLg6xuI', { action: 'submit' }).then(function (token) {
+                    document.getElementById('#form_job_offer').submit();
+                });
+            });
+        }
+    </script>
 </body>
 </html>
