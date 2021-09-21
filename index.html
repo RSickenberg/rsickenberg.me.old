@@ -510,7 +510,17 @@
     </div>
     <script>
         function onFormJobSubmit(e) {
-            document.getElementById('form_job_offer').submit();
+            const form = document.getElementById('form_job_offer');
+            const fields = ['_replyto', 'message'];
+
+            fields.forEach((field) => {
+                if (form[field].value === '') {
+                    console.warn(`The field ${field} is empty!`);
+                    return;
+                }
+            })
+
+            form.submit();
         }
     </script>
 </body>
