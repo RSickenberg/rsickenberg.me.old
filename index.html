@@ -510,17 +510,21 @@
     </div>
     <script>
         function onFormJobSubmit(e) {
+            let isValid = true;
             const form = document.getElementById('form_job_offer');
             const fields = ['_replyto', 'message'];
 
             fields.forEach((field) => {
                 if (form[field].value === '') {
                     console.warn(`The field ${field} is empty!`);
-                    return;
+                    isValid = false;
+                    break;
                 }
             })
 
-            form.submit();
+            if (isValid) {
+                form.submit();
+            }
         }
     </script>
 </body>
