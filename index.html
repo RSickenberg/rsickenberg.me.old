@@ -507,12 +507,7 @@
     </div>
     <script>
         function onFormJobSubmit(e) {
-            e.preventDefault();
-            grecaptcha.ready(function () {
-                grecaptcha.execute('6LdCWYAcAAAAAMpLbUCErozbOZtmqEvz6zLg6xuI', { action: 'submit' }).then(function (token) {
-                    document.getElementById('#form_job_offer').submit();
-                });
-            });
+            document.getElementById('#form_job_offer').submit();
         }
     </script>
 </body>
