@@ -1,4 +1,4 @@
-/*! UIkit 3.9.1 | https://www.getuikit.com | (c) 2014 - 2021 YOOtheme | MIT License */
+/*! UIkit 3.10.1 | https://www.getuikit.com | (c) 2014 - 2022 YOOtheme | MIT License */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('uikit-util')) :
@@ -339,12 +339,12 @@
 
                             return fade.apply(void 0, args.concat( [40] ));
                 }
-                        : !name
-                            ? function () {
+                        : name
+                            ? slide
+                            : function () {
                                 action();
                                 return uikitUtil.Promise.resolve();
-                            }
-                            : slide;
+                            };
 
                 return animationFn(action, target, this.duration)
                     .then(function () { return this$1$1.$update(target, 'resize'); }, uikitUtil.noop);

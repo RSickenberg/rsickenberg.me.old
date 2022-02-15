@@ -1,4 +1,4 @@
-/*! UIkit 3.9.1 | https://www.getuikit.com | (c) 2014 - 2021 YOOtheme | MIT License */
+/*! UIkit 3.10.1 | https://www.getuikit.com | (c) 2014 - 2022 YOOtheme | MIT License */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('uikit-util')) :
@@ -49,7 +49,7 @@
         if ( unit === void 0 ) unit = '%';
 
         value += value ? unit : '';
-        return uikitUtil.isIE ? ("translateX(" + value + ")") : ("translate3d(" + value + ", 0, 0)"); // currently not translate3d in IE, translate3d within translate3d does not work while transitioning
+        return uikitUtil.isIE ? ("translateX(" + value + ")") : ("translate3d(" + value + ", 0, 0)"); // currently, not translate3d in IE, translate3d within translate3d does not work while transitioning
     }
 
     function scale3d(value) {
@@ -1008,6 +1008,10 @@
         update: {
 
             read: function() {
+
+                if (!this.list) {
+                    return false;
+                }
 
                 var ref = this.ratio.split(':').map(Number);
                 var width = ref[0];

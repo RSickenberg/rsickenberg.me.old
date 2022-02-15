@@ -1,4 +1,4 @@
-/*! UIkit 3.9.1 | https://www.getuikit.com | (c) 2014 - 2021 YOOtheme | MIT License */
+/*! UIkit 3.10.1 | https://www.getuikit.com | (c) 2014 - 2022 YOOtheme | MIT License */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('uikit-util')) :
@@ -341,7 +341,7 @@
                             var p = ref$1[2];
 
                             css[prop] = "rgba(" + (start.map(function (value, i) {
-                                    value = value + p * (end[i] - value);
+                                    value += p * (end[i] - value);
                                     return i === 3 ? uikitUtil.toFloat(value) : parseInt(value, 10);
                                 }).join(',')) + ")";
                             break;

@@ -1,4 +1,4 @@
-/*! UIkit 3.9.1 | https://www.getuikit.com | (c) 2014 - 2021 YOOtheme | MIT License */
+/*! UIkit 3.10.1 | https://www.getuikit.com | (c) 2014 - 2022 YOOtheme | MIT License */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('uikit-util')) :
@@ -234,7 +234,7 @@
         },
 
         data: {
-            pos: ("bottom-" + (!uikitUtil.isRtl ? 'left' : 'right')),
+            pos: ("bottom-" + (uikitUtil.isRtl ? 'right' : 'left')),
             flip: true,
             offset: false,
             clsPos: ''
@@ -245,7 +245,7 @@
             pos: function(ref) {
                 var pos = ref.pos;
 
-                return (pos + (!uikitUtil.includes(pos, '-') ? '-center' : '')).split('-');
+                return pos.split('-').concat('center').slice(0, 2);
             },
 
             dir: function() {
@@ -372,7 +372,8 @@
                 }
 
                 this.toggleElement(this.tooltip, false, false).then(function () {
-                    this$1$1.tooltip = uikitUtil.remove(this$1$1.tooltip);
+                    uikitUtil.remove(this$1$1.tooltip);
+                    this$1$1.tooltip = null;
                     this$1$1._unbind();
                 });
             },

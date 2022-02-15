@@ -1,4 +1,4 @@
-/*! UIkit 3.9.1 | https://www.getuikit.com | (c) 2014 - 2021 YOOtheme | MIT License */
+/*! UIkit 3.10.1 | https://www.getuikit.com | (c) 2014 - 2022 YOOtheme | MIT License */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -146,7 +146,7 @@
 
     function toNumber(value) {
         var number = Number(value);
-        return !isNaN(number) ? number : false;
+        return isNaN(number) ? false : number;
     }
 
     function toFloat(value) {
@@ -634,8 +634,9 @@
     function domPath(element) {
         var names = [];
         while (element.parentNode) {
-            if (element.id) {
-                names.unshift(("#" + (escape(element.id))));
+            var id = attr(element, 'id');
+            if (id) {
+                names.unshift(("#" + (escape(id))));
                 break;
             } else {
                 var tagName = element.tagName;
@@ -1104,10 +1105,7 @@
             return;
         }
 
-        var unbind = on(document, 'DOMContentLoaded', function () {
-            unbind();
-            fn();
-        });
+        once(document, 'DOMContentLoaded', fn);
     }
 
     function empty(element) {
@@ -1127,10 +1125,10 @@
 
         parent = $(parent);
 
-        if (!parent.hasChildNodes()) {
-            return append(parent, element);
-        } else {
+        if (parent.hasChildNodes()) {
             return insertNodes(element, function (element) { return parent.insertBefore(element, parent.firstChild); });
+        } else {
+            return append(parent, element);
         }
     }
 
@@ -1419,21 +1417,23 @@
     var parseCssVar = memoize(function (name) {
         /* usage in css: .uk-name:before { content:"xyz" } */
 
-        var element = append(document.documentElement, document.createElement('div'));
+        var element = append(document.documentElement, fragment('<div>'));
 
         addClass(element, ("uk-" + name));
 
-        name = getStyle(element, 'content', ':before').replace(/^["'](.*)["']$/, '$1');
+        var value = getStyle(element, 'content', ':before');
 
         remove$1(element);
 
-        return name;
+        return value;
     });
 
+    var propertyRe = /^\s*(["'])?(.*?)\1\s*$/;
     function getCssVar(name) {
-        return !isIE
-            ? getStyles(document.documentElement).getPropertyValue(("--uk-" + name))
-            : parseCssVar(name);
+        return (isIE
+            ? parseCssVar(name)
+            : getStyles(document.documentElement).getPropertyValue(("--uk-" + name))
+        ).replace(propertyRe, '$2');
     }
 
     // https://drafts.csswg.org/cssom/#dom-cssstyledeclaration-setproperty
@@ -1602,14 +1602,17 @@
     function offset(element, coordinates) {
 
         var currentOffset = dimensions(element);
-        var ref = toWindow(element);
-        var pageYOffset = ref.pageYOffset;
-        var pageXOffset = ref.pageXOffset;
-        var offsetBy = {height: pageYOffset, width: pageXOffset};
 
-        for (var dir in dirs$1) {
-            for (var i in dirs$1[dir]) {
-                currentOffset[dirs$1[dir][i]] += offsetBy[dir];
+        if (element) {
+            var ref = toWindow(element);
+            var pageYOffset = ref.pageYOffset;
+            var pageXOffset = ref.pageXOffset;
+            var offsetBy = {height: pageYOffset, width: pageXOffset};
+
+            for (var dir in dirs$1) {
+                for (var i in dirs$1[dir]) {
+                    currentOffset[dirs$1[dir][i]] += offsetBy[dir];
+                }
             }
         }
 
@@ -2289,10 +2292,10 @@
                     scrollTop(element, scroll + top * percent);
 
                     // scroll more if we have not reached our destination
-                    if (percent !== 1) {
-                        requestAnimationFrame(step);
-                    } else {
+                    if (percent === 1) {
                         resolve();
+                    } else {
+                        requestAnimationFrame(step);
                     }
 
                 })();
@@ -3001,12 +3004,12 @@
 
                 events.forEach(function (event) {
 
-                    if (!hasOwn(event, 'handler')) {
+                    if (hasOwn(event, 'handler')) {
+                        registerEvent(this$1$1, event);
+                    } else {
                         for (var key in event) {
                             registerEvent(this$1$1, event[key], key);
                         }
-                    } else {
-                        registerEvent(this$1$1, event);
                     }
 
                 });
@@ -3387,10 +3390,10 @@
                     var instance = UIkit.getComponent(element, name);
 
                     if (instance) {
-                        if (!data) {
-                            return instance;
-                        } else {
+                        if (data) {
                             instance.$destroy();
+                        } else {
+                            return instance;
                         }
                     }
 
@@ -3460,7 +3463,7 @@
     UIkit.data = '__uikit__';
     UIkit.prefix = 'uk-';
     UIkit.options = {};
-    UIkit.version = '3.9.1';
+    UIkit.version = '3.10.1';
 
     globalAPI(UIkit);
     hooksAPI(UIkit);
@@ -4100,7 +4103,7 @@
 
     var cover = {
 
-        mixins: [Class, Video],
+        mixins: [Video],
 
         props: {
             width: Number,
@@ -4190,7 +4193,7 @@
         },
 
         data: {
-            pos: ("bottom-" + (!isRtl ? 'left' : 'right')),
+            pos: ("bottom-" + (isRtl ? 'right' : 'left')),
             flip: true,
             offset: false,
             clsPos: ''
@@ -4201,7 +4204,7 @@
             pos: function(ref) {
                 var pos = ref.pos;
 
-                return (pos + (!includes(pos, '-') ? '-center' : '')).split('-');
+                return pos.split('-').concat('center').slice(0, 2);
             },
 
             dir: function() {
@@ -4322,7 +4325,8 @@
                 this.target = this.$create('toggle', query(this.toggle, this.$el), {
                     target: this.$el,
                     mode: this.mode
-                });
+                }).$el;
+                attr(this.target, 'aria-haspopup', true);
             }
 
         },
@@ -6588,7 +6592,7 @@
 
         data: {
             dropdown: navItem,
-            align: !isRtl ? 'left' : 'right',
+            align: isRtl ? 'right' : 'left',
             clsDrop: 'uk-navbar-dropdown',
             mode: undefined,
             offset: undefined,
@@ -7815,7 +7819,7 @@
             {
 
                 read: function(ref, types) {
-                    var height = ref.height;
+                    var height$1 = ref.height;
 
 
                     this.inactive = !this.matchMedia || !isVisible(this.$el);
@@ -7826,15 +7830,21 @@
 
                     if (this.isActive && types.has('resize')) {
                         this.hide();
-                        height = this.$el.offsetHeight;
+                        height$1 = this.$el.offsetHeight;
                         this.show();
                     }
 
-                    height = !this.isActive ? this.$el.offsetHeight : height;
+                    height$1 = this.isActive ? height$1 : this.$el.offsetHeight;
 
-                    this.topOffset = offset(this.isFixed ? this.placeholder : this.$el).top;
-                    this.bottomOffset = this.topOffset + height;
-                    this.offsetParentTop = offset(this.$el.offsetParent).top;
+                    if (height$1 + this.offset > height(window)) {
+                        this.inactive = true;
+                        return false;
+                    }
+
+                    var referenceElement = this.isFixed ? this.placeholder : this.$el;
+                    this.topOffset = offset(referenceElement).top;
+                    this.bottomOffset = this.topOffset + height$1;
+                    this.offsetParentTop = offset(referenceElement.offsetParent).top;
 
                     var bottom = parseProp('bottom', this);
 
@@ -7843,7 +7853,7 @@
                     this.width = dimensions(isVisible(this.widthElement) ? this.widthElement : this.$el).width;
 
                     return {
-                        height: height,
+                        height: height$1,
                         top: offsetPosition(this.placeholder)[0],
                         margins: css(this.$el, ['marginTop', 'marginBottom', 'marginLeft', 'marginRight'])
                     };
@@ -8234,6 +8244,8 @@
 
     };
 
+    var KEY_SPACE = 32;
+
     var toggle = {
 
         mixins: [Media, Togglable],
@@ -8356,12 +8368,11 @@
                 name: 'keydown',
 
                 filter: function() {
-                    return includes(this.mode, 'click');
+                    return includes(this.mode, 'click') && this.$el.tagName !== 'INPUT';
                 },
 
                 handler: function(e) {
-                    // Space
-                    if (e.keyCode === 32) {
+                    if (e.keyCode === KEY_SPACE) {
                         e.preventDefault();
                         this.$el.click();
                     }
