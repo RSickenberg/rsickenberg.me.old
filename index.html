@@ -28,23 +28,12 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet" type='text/css'>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83619616-1"></script>
-    <script async defer src="https://www.google.com/recaptcha/api.js"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
         gtag('config', 'UA-83619616-1');
-    </script>
-    <script defer>
-      window.onload = function() {
-        let recaptcha = document.querySelector('#g-recaptcha-response');
-
-        if (recaptcha) {
-          recaptcha.setAttribute("required", "required");
-        }
-      };
-
     </script>
 </head>
 <body>
@@ -309,7 +298,7 @@
                                         <li>
                                             <ul uk-accordion="duration: 1000;" class="uk-padding-remove">
                                                 <li>
-                                                    <a class="uk-accordion-title">See more ...</a>
+                                                    <span class="uk-accordion-title uk-icon-link">See more ...</span>
                                                     <div class="uk-accordion-content">
                                                         <ul class="uk-list uk-list-hyphen uk-list-divider">
                                                             <li>
@@ -346,14 +335,14 @@
                                         <li>
                                             <ul uk-accordion="duration: 1000;" class="uk-padding-remove">
                                                 <li>
-                                                    <a class="uk-accordion-title">See more ...</a>
+                                                    <span class="uk-accordion-title">See more ...</span>
                                                     <div class="uk-accordion-content">
                                                         <ul class="uk-list uk-list-hyphen uk-list-divider">
                                                             <li><span>Experienced Sysadmin work.</span></li>
                                                             <li><span>Test driven development.</span></li>
                                                             <li><span>Designed iOS Apps, websites and wire-frames.</span></li>
                                                             <li><span>Experienced Moodle development.</span></li>
-                                                            <li><span>Worked on an internal project responsible for our timesheets, projects, contracts, salary and, our bills system.</span></li>
+                                                            <li><span>Worked on an internal project responsible for our timesheets, projects, contracts, salary and, our billing system.</span></li>
                                                         </ul>
                                                     </div>
                                                 </li>
@@ -362,40 +351,6 @@
                                     </ul>
                                 </li>
                             </ul>
-                            <hr>
-                            <div class="uk-container uk-width-1-2 uk-margin-medium-top">
-                                <button class="uk-button uk-button-primary uk-align-center" uk-toggle="target: #form-modal" type="button">Add a new job</button>
-                            </div>
-                            <div id="form-modal" uk-modal>
-                                <div class="uk-modal-dialog uk-modal-body">
-                                    <h2 class="uk-modal-title">Contact me</h2>
-                                    <p>Thank you for reaching me.</p>
-                                    <p>I can't wait to meet you and share a coffee!</p>
-                                    <hr>
-                                    <div class="uk-width-1-1">
-                                        <form id="form_job_offer" class="uk-grid-small uk-form-stacked" uk-grid action="https://formspree.io/xzbjekye" method="POST">
-                                            <div class="uk-width-1-1">
-                                                <label class="uk-form-label" for="email">Your email</label>
-                                                <div class="uk-inline uk-width-1-1">
-                                                    <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                                                    <input class="uk-input" type="email" id="email" name="_replyto" required>
-                                                </div>
-                                            </div>
-
-                                            <div class="uk-width-1-1">
-                                                <label class="uk-form-label" for="message">Message</label>
-                                                <textarea class="uk-textarea" id="message" rows="5" name="message" required></textarea>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <p uk-margin>
-                                            <button class="uk-button uk-button-default uk-width-1-1 uk-modal-close" type="button">Cancel</button>
-                                            <button class="uk-button uk-button-primary uk-width-1-1 g-recaptcha" data-sitekey="6LdCWYAcAAAAAMpLbUCErozbOZtmqEvz6zLg6xuI"
-                                                data-size="invisible" data-callback="onFormJobSubmit" data-action="submit">Submit</button>
-                                        </p>
-                                    </form>
-                                </div>
-                            </div>
                         </li>
                     </ul>
                 </div>
@@ -465,14 +420,14 @@
                                 <h3 class="uk-card-title uk-heading-divider">Technology</h3>
                                 <p>Written in Swift 5 and compatible for iOS 10 or higher.</p>
                                 <p>Backend is in Django as a tool to generate JSON required for the app.
-                                    The JSON is hosted on Github Pages.
+                                    The JSON is hosted on GitHub Pages.
                                 </p>
                             </div>
                         </div>
                         <div class="uk-first-column">
                             <div class="uk-card uk-card-body">
                                 <h3 class="uk-card-title uk-heading-divider">Success story</h3>
-                                <p>Top #19 in category "References" in the App Store for 2 weeks.</p>
+                                <p>Top #19 in the category "References" in the App Store for 2 weeks.</p>
                                 <p>About 70k downloads and a rating of 4.7 on 5.0 stars worldwide with about 330 reviews!</p>
                             </div>
                         </div>
@@ -532,40 +487,5 @@
             </div>
         </div>
     </div>
-    <script>
-        function onFormJobSubmit(e) {
-            e.preventDefault();
-            let isValid = true;
-            const form = document.getElementById('form_job_offer');
-            const fields = ['_replyto', 'message'];
-
-            fields.forEach((field) => {
-                if (form[field].value === '') {
-                    console.warn(`The field ${field} is empty!`);
-                    isValid = false;
-                }
-            })
-
-            if (isValid) {
-                capValidate(grecaptcha.getResponse())
-            }
-        }
-
-        function capValidate(token) {
-            grecaptcha.ready(() => {
-                const recaptchaSecret = '6LdCWYAcAAAAACbTCfOOXyPlgIBYGD3ihVjIye2o';
-                const responseString = "https://www.google.com/recaptcha/api/siteverify?secret=" + recaptchaSecret + "&response=" + token;
-
-                $.ajax({
-                    url: responseString,
-                    type: 'POST',
-                    crossDomain: true,
-                    dataType: 'jsonp',
-                }).then((resp) => {
-                    console.log(resp);
-                });
-            })
-        }
-    </script>
 </body>
 </html>
