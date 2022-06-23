@@ -47,10 +47,10 @@ jobs:
 
       - run: npm run build #Test to run the build in case of failure
 
-      - name: Commit yarn.lock
+      - name: Commit the changes
         run: |
           git config user.name "dependabot-fix"
           git config user.email "dependabot-fix@example.com"
           git add .
-          git commit -m '[dependabot skip] Fix and run build'
+          git commit -m '[dependabot skip] Fix and run build' --allow-empty
           git push
