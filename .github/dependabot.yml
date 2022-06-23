@@ -1,0 +1,12 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    versioning-strategy: increase-if-necessary
+    allow:
+      - dependency-type: direct
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 20
+    reviewers:
+      - "RSickenberg"

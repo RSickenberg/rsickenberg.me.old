@@ -1,0 +1,58 @@
+# Automatically save updated `yarn.lock` file for dependabot PRs.
+# This is necessary because dependabot doesn't support Yarn v2 yet:
+# https://github.com/dependabot/dependabot-core/issues/1297
+#
+# Note: We use the `pull_request_target` event due to GitHub security measures.
+#       It is important to ensure we don't execute any untrusted PR code in this context.
+# See: https://github.blog/changelog/2021-02-19-github-actions-workflows-triggered-by-dependabot-prs-will-run-with-read-only-permissions/
+#      https://securitylab.github.com/research/github-actions-preventing-pwn-requests
+
+# Inspired from https://gist.github.com/amacneil/60bf679f357bad9d62103cfdc86cbd74
+name: Dependabot
+on:
+  - pull_request_target
+
+jobs:
+  fix-lockfile:
+    runs-on: ubuntu-latest
+    if: |
+      github.actor == 'dependabot[bot]' &&
+      contains(github.event.pull_request.head.ref, 'dependabot/npm_and_yarn/')
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # Using a Personal Access Token here is required to trigger workflows on our new commit.
+          # The default GitHub token doesn't trigger any workflows.
+          # See: https://github.community/t/push-from-action-does-not-trigger-subsequent-action/16854/2
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 2
+
+      - run: git lfs pull --include node_modules/
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: .yarn/cache
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm-
+
+      - run: git checkout HEAD~1 package-lock.json
+
+      - run: npm install
+
+      - run: npm run build #Test to run the build in case of failure
+
+      - name: Commit yarn.lock
+        run: |
+          git config user.name "dependabot-fix"
+          git config user.email "dependabot-fix@example.com"
+          git add .
+          git commit -m '[dependabot skip] Fix and run build'
+          git push
