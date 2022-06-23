@@ -43,8 +43,6 @@ jobs:
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-npm-
 
-      - run: git checkout HEAD~1 package-lock.json
-
       - run: npm install
 
       - run: npm run build #Test to run the build in case of failure
