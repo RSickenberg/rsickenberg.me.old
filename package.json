@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/RSickenberg/Sickenberg.me#readme",
   "dependencies": {
-    "bulma-carousel": "^3.0.0",
+    "bulma-carousel": "^4.0.24",
     "jquery": "^3.5.1",
     "uikit": "^3.14.1"
   },
